@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h1>Article List</h1>
+    <%= link_to "Add Article", new_admin_article_path, class: "btn btn-default" %>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Description</td>
+          <td>URL</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admin_articles.each do |article|%>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.description %></td>
+          <td><%= article.permalink %></td>
+          <td><%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-primary" %></td>
+          <td><%= link_to "Delete", admin_article_path(article), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
+        </tr>
+      </tbody>
+      <%end%>
+    </table>
+  </div>
+</div>

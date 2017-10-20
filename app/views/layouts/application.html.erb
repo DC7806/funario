@@ -3,22 +3,12 @@
   <head>
     <title>Funario</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <h1>test</h1>
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-4 offset-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid sint maxime hic perferendis, incidunt ad temporibus alias magnam molestias. Ab.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

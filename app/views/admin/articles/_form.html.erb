@@ -1,0 +1,25 @@
+<%= form_for article do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control" %></div>
+
+  <div class="form-group">
+    <%= f.label :description, "Meta Description" %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :permalink, "URL" %>
+    <%= f.text_field :permalink, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content , class: "form-control", style: "min-height: 100px"%>
+  </div>
+
+  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
+  <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
+
+<% end %>
