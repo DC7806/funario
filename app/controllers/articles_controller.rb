@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  layout 'article'
   def index
     @articles = Admin::Article.all 
   end

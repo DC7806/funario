@@ -1,6 +1,10 @@
-<div class="container">
-  <div class="row">
+<section class="section">
+  <div class="container">
     <h1><%= @article.title %></h1>
+    <div class="columns">
+    <%= image_tag @article.image, alt: "#{@article.cover_image_alt}", src: "#{@article.image.file.path}" %>
     <p><%= @article.content %></p>
   </div>
-</div>
+  </div>
+  
+</section>

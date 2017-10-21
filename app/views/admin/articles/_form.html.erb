@@ -1,25 +1,42 @@
-<%= form_for article do |f| %>
-
-  <div class="form-group">
-    <%= f.label :title, "Title" %>
-    <%= f.text_field :title, class: "form-control" %></div>
-
-  <div class="form-group">
-    <%= f.label :description, "Meta Description" %>
-    <%= f.text_field :description, class: "form-control" %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= form_for article do |f| %>
+    
+      <div class="form-group">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, class: "form-control" %></div>
+    
+      <div class="form-group">
+        <%= f.label :description, "Description" %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= image_tag article.image, style: "width:100%"%>
+        <%= f.label :image, "Cover Image" %>
+        <%= f.file_field :image, class: "form-control" %>
+        <%= f.label :cover_image_alt, "Cover Image Alt" %>
+        <%= f.text_field :cover_image_alt, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :meta_description, "Meta Description" %>
+        <%= f.text_field :meta_description, class: "form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :permalink, "URL" %>
+        <%= f.text_field :permalink, class: "form-control" %>
+      </div>
+    
+      <div>
+        <%= f.label :content, "Content" %>
+        <%= f.text_area :content , class: "form-control", style: "min-height: 100px"%>
+      </div>
+    
+      <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
+      <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
+    
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :permalink, "URL" %>
-    <%= f.text_field :permalink, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= f.label :content, "Content" %>
-    <%= f.text_area :content , class: "form-control", style: "min-height: 100px"%>
-  </div>
-
-  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
-  <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
-
-<% end %>
+</div>

@@ -38,7 +38,7 @@ class Admin::ArticlesController < ApplicationController
 
   private
   def admin_article_params
-    params.require(:admin_article).permit(:title, :description, :meta_description, :permalink, :image, :content)
+    params.require(:admin_article).permit(:title, :description, :meta_description, :permalink, :image, :cover_image_alt,:content)
   end
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])

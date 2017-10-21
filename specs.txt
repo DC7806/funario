@@ -1,0 +1,37 @@
+1. Admin
+	1.1 admin login (devise gem), multiple admins
+	1.2 has different articles
+
+2. image/file upload
+
+3. editor
+
+4. Search Engine Optimization(SEO)
+	5.1 tittle, description
+	5.2 bread crumb
+	5.3 sitemap (sitemap_generator gem)
+	5.4 url (V)
+
+5. social share (gem)
+
+6. detail page (articles)
+	7.1 comments
+	7.2 article recommendations
+	7.3 slideshow
+	7.4 article tag
+
+7. article category
+	8.1 by year
+	8.2 by category
+
+8. search
+
+9. schedule (whenever gem)
+
+
+###############
+
+multi-lang(To be determined)
+	optional multi-lang
+	translate yml backend UI (globalize gem)
+	default language to user browser setting
