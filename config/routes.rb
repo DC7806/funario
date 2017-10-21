@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   #app
   resources :articles, only: [:show, :index]
   #admin
