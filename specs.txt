@@ -1,10 +1,15 @@
+/////////////////////////////////////////////////
+ruby 	V 2.4.1
+Rails	V 5.1.4
+/////////////////////////////////////////////////
+
 1. Admin
 	1.1 admin login (devise gem), multiple admins
 	1.2 has different articles
 
-2. image/file upload (V)
+2. image/file upload (carrierwave gem)(V)
 
-3. editor (V)
+3. editor (ckEditor gem)(V)
 
 4. Search Engine Optimization(SEO)
 	5.1 tittle, description, og (V)
@@ -15,10 +20,11 @@
 5. social share (gem)
 
 6. article detail page
-	7.1 commentable
+	7.1 commentable (disqus) (V)
 	7.2 recommendable
 	7.3 slideshow
 	7.4 tagable
+	7.5 paginatable (kaminari gem)
 
 7. article category
 	8.1 by year
@@ -29,7 +35,7 @@
 9. schedule (whenever gem)
 
 
-###############
+/////////////////////////////////////////////////
 
 multi-lang(To be determined)
 	optional multi-lang
