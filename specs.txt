@@ -2,23 +2,23 @@
 	1.1 admin login (devise gem), multiple admins
 	1.2 has different articles
 
-2. image/file upload
+2. image/file upload (V)
 
-3. editor
+3. editor (V)
 
 4. Search Engine Optimization(SEO)
-	5.1 tittle, description
+	5.1 tittle, description, og (V)
 	5.2 bread crumb
 	5.3 sitemap (sitemap_generator gem)
 	5.4 url (V)
 
 5. social share (gem)
 
-6. detail page (articles)
-	7.1 comments
-	7.2 article recommendations
+6. article detail page
+	7.1 commentable
+	7.2 recommendable
 	7.3 slideshow
-	7.4 article tag
+	7.4 tagable
 
 7. article category
 	8.1 by year

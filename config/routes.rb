@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  #ckEditor
   mount Ckeditor::Engine => '/ckeditor'
+  
   #app
+  # root '/' => 'pages/index'
   resources :articles, only: [:show, :index]
+  
   #admin
   namespace :admin, path: 'backyard' do
     resources :articles, except: [:show]
-    root "admin#index"
+    root "articles#index"
   end
+  
 end

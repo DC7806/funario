@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+  <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
+  <meta name="viewport"              content="width=device-width, initial-scale=1" />
   <title><%= @article.title %></title>
-  <meta name="description" content="<%= @article.meta_description %>" />
-  <meta property="og:app_id"             content="" />
-  <meta property="og:url"                content="<%= article_url(@article.permalink) %>" />
-  <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="<%= @article.title %>" />
-  <meta property="og:description"        content="<%= @article.meta_description %>" />
-  <meta property="og:image"              content="<%= @article.image.file.path %>" />
-
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" 
-          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
-          crossorigin="anonymous"></script>
-
+  <meta name="description"           content="<%= @article.meta_description %>" />
+  <!-- og -->
+  <meta property="og:app_id"         content="" />
+  <meta property="og:type"           content="article" />
+  <meta property="og:url"            content="<%= request.url %>" />
+  <meta property="og:title"          content="<%= @article.title %>" />
+  <meta property="og:description"    content="<%= @article.meta_description %>" />
+  <meta property="og:image"          content="<%= @article.image.file.path %>" />
+  <!-- css -->
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
+  <!-- js -->
+  <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", type: "text/javascript" %>
+  <%= javascript_include_tag "https://code.jquery.com/jquery-3.2.1.min.js", integrity: "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin: "anonymous" %>
+  
 </head>
 
 <body>

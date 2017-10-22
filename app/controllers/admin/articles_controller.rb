@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   before_action :find_article, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @admin_articles = Admin::Article.all
