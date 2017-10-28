@@ -27,7 +27,7 @@ Specs
 	6.2 recommendable (removed)
 	6.3 slideshow
 	6.4 tagable (acts-as-taggable-on gem)
-	6.5 paginatable (kaminari gem)
+	6.5 paginatable (kaminari gem) (backend V)
 
 7. article category
 	7.1 by category
@@ -44,3 +44,13 @@ TBD
 	optional multi-lang
 	translate yml backend UI (globalize gem)
 	default language to user browser setting
+
+
+To Ask
+/////////////////////////////////////////////////	
+1. CSS inheritance
+2. helper each method
+3. insert html class to form_helper (eg. edit.html.erb)
+4. image realtion and routes, multiple image upload
+5. DropzoneJS or other drag n drop solution
+

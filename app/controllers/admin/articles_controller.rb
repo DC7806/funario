@@ -1,9 +1,8 @@
-class Admin::ArticlesController < ApplicationController
+class Admin::ArticlesController < AdminController
   before_action :find_article, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
-
   def index
-    @admin_articles = Admin::Article.all
+    @admin_articles = Admin::Article.all.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def new

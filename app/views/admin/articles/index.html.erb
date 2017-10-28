@@ -17,6 +17,7 @@
       <td><%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-primary" %></td>
       <td><%= link_to "Delete", admin_article_path(article), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
     </tr>
+    <%end%>
   </tbody>
-  <%end%>
 </table>
+<%= paginate @admin_articles %>

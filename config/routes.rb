@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
+  #admin
   devise_for :users
+  
   #ckEditor
   mount Ckeditor::Engine => '/ckeditor'
   

@@ -2,14 +2,18 @@ module ArticlesHelper
   # title tag option1
   def title(title = nil) 
     if title.present?
-      content_tag :title {title.title + " | Funario"}
+      content_tag :title {title + " | Funario"}
     else
-      conten_tag :title {"default"}
+      content_tag :title {"default"}
     end
   end
   #title tag option2
   def title_tag(page_title)
-    tag.title "#{page_title} | test"
+    if title.present?
+      tag.title "#{page_title} | test"
+    else
+      tag.title "default"
+    end
   end
   
   # the editor section only shows up if content available
@@ -21,17 +25,18 @@ module ArticlesHelper
     end
   end
 
-  # meta description option1
-  # def meta_description_tag(hash)
-  #   key = hash.keys[0].to_s
-  #   value = hash[:description]
-  #   tag :meta, { name: key , content: value}
-  # end
-
-  #meta description option2 (iteration stops after the first one???)
+  #meta description 
   def meta_description_tag(hsh)
-    hsh.map {|key, value| tag(:meta, name: key , content: value)}
+    ##iteration stops after the first one???
+    # hsh.each {|key, value| tag(:meta, name: key , content: value)}
+    ## equals to the line at the end??? (reference: 5xRuby)
+    hsh.map {|key, value| tag(:meta, name: key , content: value)}.inject(&:+)
+  end
+
+  def og_tag(hsh)
+    hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+)
   end
 
 end
 
+# "<meta name="description" content="meta_description"/>" + "<meta name="keyword" content="title1"/>"
