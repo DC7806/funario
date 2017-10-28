@@ -7,11 +7,15 @@
     <div class="row">
       <%= image_tag @article.image, alt: "#{@article.cover_image_alt}", src: "#{@article.image.file.path}", style: "width: 100%"%>
     </div>
+
     <div class="row">
       <div class="editor">
         <%= @article.content.html_safe %>
       </div>
-    </div>                   
+    </div>
+
+    <%= editor_tag @article %>                   
+
     
     <%= render 'disqus' %>
 

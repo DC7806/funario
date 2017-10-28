@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+  <%= meta_description_tag @seo %>
+  <%= title_tag @article.title %>
+  <%= title @article %>
   <%= csrf_meta_tags %>
+  <title><%= @article.title %></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
   <meta name="viewport"              content="width=device-width, initial-scale=1" />
-  <title><%= @article.title %></title>
   <meta name="description"           content="<%= @article.meta_description %>" />
   <!-- og -->
   <meta property="og:app_id"         content="" />
@@ -20,7 +23,6 @@
   <!-- js -->
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", type: "text/javascript" %>
   <%= javascript_include_tag "https://code.jquery.com/jquery-3.2.1.min.js", integrity: "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin: "anonymous" %>
-  
 </head>
 
 <body>
