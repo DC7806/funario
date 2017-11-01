@@ -5,7 +5,7 @@ class Admin::Article < ApplicationRecord
   mount_uploader :image, ArticleCoverImageUploader
 
   #validate
-  validates_presence_of :title, :image, :description
+  validates_presence_of :title, :image, :description, :author
 
   private
   #parameterize permalink

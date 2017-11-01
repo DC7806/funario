@@ -1,0 +1,22 @@
+<h1>Authors List</h1>
+<%= link_to "Add Authors", new_admin_author_path, class: "btn btn-default" %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Nickname</td>
+      <td>Summary</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author|%>
+    <tr>
+      <td><%= author.name %></td>
+      <td><%= author.nickname %></td>
+      <td><%= author.summary %></td>
+      <td><%= link_to "Edit", edit_admin_author_path(author), class: "btn btn-primary" %></td>
+      <td><%= link_to "Delete", admin_author_path(author), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

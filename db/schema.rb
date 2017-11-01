@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022075042) do
+ActiveRecord::Schema.define(version: 20171101122324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20171022075042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_image_alt"
+    t.string "author"
+  end
+
+  create_table "admin_authors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "summary"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

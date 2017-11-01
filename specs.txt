@@ -28,6 +28,7 @@ Specs
 	6.3 slideshow
 	6.4 tagable (acts-as-taggable-on gem)
 	6.5 paginatable (kaminari gem) (backend V)
+	6.6 preview
 
 7. article category
 	7.1 by category
@@ -37,6 +38,9 @@ Specs
 
 9. schedule (whenever gem)
 
+10. static pages
+	10.1 homepage
+	10.2 authors
 
 TBD
 /////////////////////////////////////////////////

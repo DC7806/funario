@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  # layout 'article'
   def index
     @articles = Admin::Article.all.order(created_at: :desc)
     @title = 'default'
