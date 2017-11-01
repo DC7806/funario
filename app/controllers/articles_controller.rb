@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Admin::Article.all.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc)
     @title = 'default'
   end
   def show
-    @article = Admin::Article.find_by(permalink: params[:id])
+    @article = Article.find_by(permalink: params[:id])
     @title = @article.title
     @seo = {
             description:      @article.meta_description ,
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
             type:             "article",
             url:              request.url,
             description:      @article.meta_description,
-            image:            @article.image.file.path
+            image:            @article.image.url
             }        
   end
 

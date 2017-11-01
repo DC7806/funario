@@ -1,11 +1,5 @@
-class Admin::Article < ApplicationRecord
-  before_save :set_permalink, :set_cover_image_alt
-
-  #carrierwave uploader
-  mount_uploader :image, ArticleCoverImageUploader
-
-  #validate
-  validates_presence_of :title, :image, :description, :author
+class Admin::Article < Article
+  before_save :set_permalink, :set_cover_image_alt  
 
   private
   #parameterize permalink

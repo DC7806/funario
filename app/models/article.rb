@@ -1,5 +1,8 @@
 class Article < ApplicationRecord
-  def to_param
-    permalink
-  end
+  #carrierwave uploader
+  mount_uploader :image, ImageUploader
+
+  #validate
+  validates_presence_of :title, :image, :description, :author
+  
 end

@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101122324) do
+ActiveRecord::Schema.define(version: 20171101152930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_articles", force: :cascade do |t|
+  create_table "admin_authors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
     t.string "title"
+    t.string "author"
     t.string "meta_description"
     t.string "permalink"
     t.string "description"
     t.string "image"
     t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "cover_image_alt"
-    t.string "author"
-  end
-
-  create_table "admin_authors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
