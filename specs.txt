@@ -10,7 +10,7 @@ Specs
 	1.1 admin login (devise gem), multiple admins (V)
 	1.2 has different articles
 	1.3 article sortable by authors
-	1.4 article searchable, filtable(?)
+	1.4 article searchable, filterable(?)
 
 2. image/file upload (carrierwave gem)(V)
 
@@ -28,7 +28,7 @@ Specs
 	6.1 commentable (disqus) (V)
 	6.2 recommendable (removed)
 	6.3 slideshow
-	6.4 tagable (acts-as-taggable-on gem)
+	6.4 tagable (acts-as-taggable-on gem) (V)
 	6.5 paginatable (kaminari gem) (backend V)
 	6.6 preview (?)
 
@@ -54,9 +54,17 @@ TBD
 
 
 To Ask
-/////////////////////////////////////////////////	
-1. CSS inheritance
-2. helper each method
-3. insert html class to form_helper (eg. edit.html.erb)
-4. image realtion and routes, multiple image upload
-5. DropzoneJS or other drag n drop solution
+/////////////////////////////////////////////////
+1. select from dropdown or manual input
+
+Look Up
+/////////////////////////////////////////////////
+1. get 'tags/:tag', to: 'articles#index', as: :tag
+
+Asked
+/////////////////////////////////////////////////
+CSS inheritance
+helper each method
+insert html class to form_helper (eg. edit.html.erb)
+image realtion and routes, multiple image upload
+DropzoneJS or other drag n drop solution

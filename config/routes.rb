@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :articles, only: [:show, :index]
   resources :authors, only: [:index]
+  get 'tags/:tag', to: 'articles#index', as: :tag
+
   
   #admin
   namespace :admin, path: 'backyard' do

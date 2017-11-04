@@ -40,6 +40,11 @@
     <%= f.cktext_area :content , class: "form-control", style: "min-height: 100px"%>
   </div>
 
+  <div class="form-group">
+    <%= f.label :tag_list, "Tags (seperate by comma)" %>
+    <%= f.text_field :tag_list, input_html: {value: f.object.tag_list.to_s}, class: "form-control" %>
+  </div>
+
   <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
   <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
 

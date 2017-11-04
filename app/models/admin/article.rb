@@ -14,4 +14,5 @@ class Admin::Article < Article
   def set_cover_image_alt
     self.cover_image_alt = cover_image_alt.parameterize unless (self.cover_image_alt.nil? || self.cover_image_alt.blank?)
   end
+
 end

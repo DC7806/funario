@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all.order(created_at: :desc)
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag])
+    else
+      @articles = Article.all.order(created_at: :desc)
+    end
     @title = 'default'
   end
   def show
@@ -15,10 +19,8 @@ class ArticlesController < ApplicationController
             url:              request.url,
             description:      @article.meta_description,
             image:            @article.image.url
-            }        
+            }           
   end
-
-
   # @seo = {
   #     meta: {
   #       description: tr(@post, :summary),

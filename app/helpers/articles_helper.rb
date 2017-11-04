@@ -16,7 +16,7 @@ module ArticlesHelper
     end
   end
   
-  # the editor section only shows up if content available
+  # ckEditor (only shows up when content available)
   def editor_tag(editor)
     if editor.content.present?
       content_tag :div, class: "row" do 
@@ -36,7 +36,19 @@ module ArticlesHelper
   def og_tag(hsh)
     hsh.map {|key, value| tag(:meta, property: "og:#{key}" , content: value)}.inject(&:+)
   end
+  # "<meta name="description" content="meta_description"/>" + "<meta name="keyword" content="title1"/>"
+
+  # tagging (only shows up when tags available)
+  def tagging_tag(tagging)
+    if tagging.tag_list.present?
+      content_tag :div, class: "article-tagging" do
+        tagging.tag_list.map {|t| link_to t, tag_path(t)}.inject(&:+)
+        # = tagging.tag_list.map {|t| link_to t, tag_path(t)}.join.html_safe
+        # look up "join" method
+      end
+    end
+  end
 
 end
 
-# "<meta name="description" content="meta_description"/>" + "<meta name="keyword" content="title1"/>"
+
