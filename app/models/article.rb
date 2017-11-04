@@ -3,6 +3,6 @@ class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   #validate
-  validates_presence_of :title, :image, :description, :author
+  validates_presence_of :title, :image, :description
   
 end

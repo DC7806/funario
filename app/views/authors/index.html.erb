@@ -1,0 +1,10 @@
+<div class="row authors">
+  <h2>Authors List</h2>
+  <% @authors.each do |author| %>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h3><%= author.name %></h3>
+      <h4><%= author.nickname %></h4>
+      <p><%= author.summary %></p>
+    </div>
+  <% end %>
+</div>

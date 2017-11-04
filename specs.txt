@@ -9,6 +9,8 @@ Specs
 1. Admin
 	1.1 admin login (devise gem), multiple admins (V)
 	1.2 has different articles
+	1.3 article sortable by authors
+	1.4 article searchable, filtable(?)
 
 2. image/file upload (carrierwave gem)(V)
 
@@ -28,19 +30,20 @@ Specs
 	6.3 slideshow
 	6.4 tagable (acts-as-taggable-on gem)
 	6.5 paginatable (kaminari gem) (backend V)
-	6.6 preview
+	6.6 preview (?)
 
 7. article category
 	7.1 by category
 	7.2 by year
 
-8. search
+8. search (pg_search gem)
 
 9. schedule (whenever gem)
 
 10. static pages
-	10.1 homepage
-	10.2 authors
+	10.1 homepage (V)
+		10.1.1 has slideshow
+	10.2 authors (V)
 
 TBD
 /////////////////////////////////////////////////
@@ -57,4 +60,3 @@ To Ask
 3. insert html class to form_helper (eg. edit.html.erb)
 4. image realtion and routes, multiple image upload
 5. DropzoneJS or other drag n drop solution
-

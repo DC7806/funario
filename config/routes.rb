@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   
   #app
-  # root '/' => 'pages/index'
+  root "pages#index"
   resources :articles, only: [:show, :index]
+  resources :authors, only: [:index]
   
   #admin
   namespace :admin, path: 'backyard' do
