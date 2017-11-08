@@ -37,6 +37,7 @@ Specs
 	7.2 by year
 
 8. search (pg_search gem)
+	8.1 backend search + date range
 
 9. schedule (whenever gem)
 
@@ -56,6 +57,8 @@ TBD
 To Ask
 /////////////////////////////////////////////////
 1. select from dropdown or manual input
+2. pg_search_scope not showing result
+3. edit page doesnt contain images uploaded
 
 Look Up
 /////////////////////////////////////////////////

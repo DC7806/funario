@@ -44,6 +44,8 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
 # article tagging
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
+# search
+gem 'pg_search'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

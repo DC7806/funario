@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :authors, only: [:index]
   get 'tags/:tag', to: 'articles#index', as: :tag
 
-  
   #admin
   namespace :admin, path: 'backyard' do
     resources :articles, :authors, except: [:show]

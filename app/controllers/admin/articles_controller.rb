@@ -2,7 +2,11 @@ class Admin::ArticlesController < AdminController
   before_action :find_article, only: [:edit, :update, :destroy]
   
   def index
-    @admin_articles = Article.all.order(created_at: :desc).page(params[:page]).per(3)
+    if params[:query]
+      @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(3)
+    else
+      @admin_articles = Article.all.order(created_at: :desc).page(params[:page]).per(3)
+    end
   end
 
   def new
@@ -38,7 +42,7 @@ class Admin::ArticlesController < AdminController
 
   private
   def article_params
-    params.require(:admin_article).permit(:title, :author, :description, :meta_description, :permalink, :image, :cover_image_alt, :content, :tag_list)
+    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description, :permalink, :image, :cover_image_alt, :content, :tag_list)
   end
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])  

@@ -1,0 +1,9 @@
+<%= form_tag admin_articles_path, method: "get" do %>
+  <div class="input-group" style="margin-top:20px;margin-bottom:20px">
+    <%= text_field_tag :query, params[:query], placeholder: "Search Here", class: "form-control"%>
+    <!-- wrong: text_field_tag 'Search' -->
+    <span class="input-group-btn">
+      <%= submit_tag 'Search', class: "btn btn-default", style: "min-width:100px" %>
+    </span> 
+  </div>
+<% end %>
