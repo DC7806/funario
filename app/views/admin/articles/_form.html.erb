@@ -2,9 +2,8 @@
 
   <div class="form-group">
     <%= f.label :author, "Author" %>
-    <%= f.select :author, options_for_select(Author.all.map {|a| [ a.name ] }), { include_blank: " - SELECT - " }, {class: "form-control"} %>
-    <%= f.label :custom_author, "Or Manually Input" %>
-    <%= f.text_field :custom_author, class: "form-control" %>
+    <%= f.select :author, options_for_select(Author.pluck(:name)+ ["other"]), { include_blank: " - SELECT - " }, {class: "form-control"} %>
+    <%= f.text_field :custom_author, class: "form-control invisible" %>
   </div>
 
   <div class="form-group">

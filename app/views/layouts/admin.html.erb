@@ -64,11 +64,29 @@
         </div>
       </div>
     </div>
+    <!-- to be revised as rails active link -->
     <script type="text/javascript">
       $(".nav.navbar-nav li a").on("click", function() {
         $(this).closest('li').siblings().removeClass("active");
         $(this).closest('li').addClass("active");
       });
+    </script>
+    <!-- dropdown select manual input -->
+    <script type="text/javascript">
+      $('#admin_article_author').change(function(){
+        if ($(this).val() == 'other'){
+          $('#admin_article_custom_author').removeClass('invisible');
+        }
+        else if ($(this).val() !== 'other'){
+          $('#admin_article_custom_author').addClass('invisible');
+        }
+      })
+    </script>
+    <!-- to be revised as rails active link -->
+    <script type="text/javascript">
+      $('.input-group-btn').on('click', function(){
+        $('#visibility-toggle').removeClass('invisible')
+      })
     </script>
   </body>
 </html>

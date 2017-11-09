@@ -7,8 +7,8 @@ class Article < ApplicationRecord
 
   #search
   include PgSearch
-  pg_search_scope :search, against: {:title => 'A', :content => 'B', :author => 'c'}
-
-  #realtion
-  # belongs_to :authors
+  pg_search_scope :search, against: {:title => 'A', :content => 'B', :author => 'c'},
+                  :using => {:tsearch => {:prefix => true, :dictionary => "english"}}
+  
+  #realtion           
 end

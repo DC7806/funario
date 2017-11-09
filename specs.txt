@@ -9,8 +9,6 @@ Specs
 1. Admin
 	1.1 admin login (devise gem), multiple admins (V)
 	1.2 has different articles
-	1.3 article sortable by authors
-	1.4 article searchable, filterable(?)
 
 2. image/file upload (carrierwave gem)(V)
 
@@ -37,7 +35,7 @@ Specs
 	7.2 by year
 
 8. search (pg_search gem)
-	8.1 backend search + date range
+	8.1 backend search (V) + date range filter
 
 9. schedule (whenever gem)
 

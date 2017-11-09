@@ -4,12 +4,12 @@ class Admin::Article < Article
 
   validates_presence_of :author, :unless => :custom_author?
 
-  before_save :set_permalink, :set_cover_image_alt, :save_author  
+  before_save :set_permalink, :set_cover_image_alt, :save_author
 
   private
   #parameterize permalink
   def set_permalink
-    if self.permalink.nil? || self.permalink.blank?
+    if self.permalink.blank?
       self.permalink = title.parameterize
     else
       self.permalink = permalink.parameterize
@@ -17,11 +17,11 @@ class Admin::Article < Article
   end
   # parameterize cover image alt
   def set_cover_image_alt
-    self.cover_image_alt = cover_image_alt.parameterize unless (self.cover_image_alt.nil? || self.cover_image_alt.blank?)
+    self.cover_image_alt = cover_image_alt.parameterize unless (self.cover_image_alt.blank?)
   end
   # save author either from select or manual input
   def save_author
-    if self.author.nil? || self.author.blank?
+    if self.author.blank? || self.author == "other"
       self.author = custom_author
     end 
   end

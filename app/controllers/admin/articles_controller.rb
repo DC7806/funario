@@ -4,6 +4,9 @@ class Admin::ArticlesController < AdminController
   def index
     if params[:query]
       @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(3)
+    elsif params[:date_range] # input name=date_range[date_from], how does it pick up?
+      @search = DateRangeSearch.new(params[:date_range])
+      @admin_articles = @search.scope.order(created_at: :desc).page(params[:page]).per(3)
     else
       @admin_articles = Article.all.order(created_at: :desc).page(params[:page]).per(3)
     end
