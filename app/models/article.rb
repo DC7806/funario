@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   #carrierwave uploader
   mount_uploader :image, ImageUploader
+  mount_uploaders :slide_images, SlideImagesUploader
 
   #tagging
   acts_as_taggable_on :tags
@@ -8,7 +9,6 @@ class Article < ApplicationRecord
   #search
   include PgSearch
   pg_search_scope :search, against: {:title => 'A', :content => 'B', :author => 'c'},
-                  :using => {:tsearch => {:prefix => true, :dictionary => "english"}}
-  
+                  :using => {:tsearch => {:prefix => true, :dictionary => "english"}}  
   #realtion           
 end

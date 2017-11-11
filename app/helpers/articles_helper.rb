@@ -48,7 +48,14 @@ module ArticlesHelper
       end
     end
   end
-
+  # slides
+  def slides_tag
+    render "layouts/slides" if action_name == 'show'
+  end
+  # slides style
+  def slides_style_tag
+    render "layouts/slides_style" if action_name == 'show'
+  end
 end
 
 

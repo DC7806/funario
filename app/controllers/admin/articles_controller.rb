@@ -42,10 +42,9 @@ class Admin::ArticlesController < AdminController
     redirect_to admin_articles_path
   end
 
-
   private
   def article_params
-    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description, :permalink, :image, :cover_image_alt, :content, :tag_list)
+    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description, :permalink, :image, :cover_image_alt, :content, :tag_list, {slide_images: []})
   end
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])  

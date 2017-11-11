@@ -1,0 +1,34 @@
+/* slides_timer */
+  .cb-slideshow li span { 
+  -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -moz-animation: imageAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -o-animation: imageAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -ms-animation: imageAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    animation: imageAnimation <%= @article.slide_images.count * 6  %>s linear infinite 0s; 
+    }
+  .cb-slideshow li div { 
+    -webkit-animation: titleAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -moz-animation: titleAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -o-animation: titleAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    -ms-animation: titleAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s;
+    animation: titleAnimation <%= @article.slide_images.count * 6 %>s linear infinite 0s; 
+    }
+<% for i in 2..@article.slide_images.count %>
+  <%= ".cb-slideshow li:nth-child(#{i}) span { 
+    -webkit-animation-delay: #{ 6 * (i - 1) }s;
+    -moz-animation-delay: #{ 6 * (i - 1) }s;
+    -o-animation-delay: #{ 6 * (i - 1) }s;
+    -ms-animation-delay: #{ 6 * (i - 1) }s;
+    animation-delay: #{ 6 * (i - 1) }s;
+    }" %>
+<% end %>
+<% for i in 2..@article.slide_images.count %>
+  <%= ".cb-slideshow li:nth-child(#{i}) div { 
+    -webkit-animation-delay: #{ 6 * (i - 1) }s;
+    -moz-animation-delay: #{ 6 * (i - 1) }s;
+    -o-animation-delay: #{ 6 * (i - 1) }s;
+    -ms-animation-delay: #{ 6 * (i - 1) }s;
+    animation-delay: #{ 6 * (i - 1) }s;
+    }" %>
+<% end %>

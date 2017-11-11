@@ -8,14 +8,14 @@ Specs
 /////////////////////////////////////////////////
 1. Admin
 	1.1 admin login (devise gem), multiple admins (V)
-	1.2 has different articles
+	1.2 has different articles (V)
 
 2. image/file upload (carrierwave gem)(V)
 
 3. editor (ckEditor gem)(V)
 
 4. Search Engine Optimization(SEO)
-	5.1 tittle, description, og (V)
+	5.1 tittle, description, og (dynamnic pages V) static pages (TO DO)
 	5.2 bread crumb (removed)
 	5.3 sitemap (sitemap_generator gem)
 	5.4 url (V)
@@ -30,33 +30,31 @@ Specs
 	6.5 paginatable (kaminari gem) (backend V)
 	6.6 preview (?)
 
-7. article category
-	7.1 by category
-	7.2 by year
+7. search (pg_search gem)
+	7.1 backend search (V) + date range filter (V)
 
-8. search (pg_search gem)
-	8.1 backend search (V) + date range filter
+8. schedule (whenever gem)
 
-9. schedule (whenever gem)
-
-10. static pages
-	10.1 homepage (V)
-		10.1.1 has slideshow
-	10.2 authors (V)
+9. static pages
+	9.1 homepage (V)
+		9.1.1 has slideshow
+	9.2 authors (V)
 
 TBD
 /////////////////////////////////////////////////
 1. multi-lang(To be determined)
-	optional multi-lang
-	translate yml backend UI (globalize gem)
-	default language to user browser setting
+	1.1 optional multi-lang
+	1.2 translate yml backend UI (globalize gem)
+	1.3 default language to user browser setting
+2. article category
+	2.1 by category
+	2.2 by year	
 
 
 To Ask
 /////////////////////////////////////////////////
-1. select from dropdown or manual input
-2. pg_search_scope not showing result
-3. edit page doesnt contain images uploaded
+1. input name=date_range[date_from], how does it pick up at controller by params[:date_range]?
+2. uploaded image path sanitize_regexp : config -> initilizers -> carrierwave.rb
 
 Look Up
 /////////////////////////////////////////////////
@@ -69,3 +67,5 @@ helper each method
 insert html class to form_helper (eg. edit.html.erb)
 image realtion and routes, multiple image upload
 DropzoneJS or other drag n drop solution
+select from dropdown or manual input -> add new column and do before_save to overwrite
+pg_search_scope not showing result -> rails params concept
