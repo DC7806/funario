@@ -5,7 +5,14 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all.order(created_at: :desc)
     end
-    @title = 'default'
+    @title = Metum.find(3).title
+    @seo = {description: Metum.find(3).meta_description}
+    @og = {
+            type:             "website",
+            url:              request.url,
+            description:      Metum.find(3).meta_description,
+            image:            Metum.find(3).og_image.url
+          }
   end
   def show
     @article = Article.find_by(permalink: params[:id])

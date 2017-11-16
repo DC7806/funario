@@ -1,0 +1,21 @@
+<h1>Meta List</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Page</td>
+      <td>Title</td>
+      <td>Meta Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meta.each do |metum|%>
+    <tr>
+      <td><%= metum.page_name %></td>
+      <td><%= metum.title %></td>
+      <td><%= metum.meta_description %></td>
+      <td><%= link_to "Edit", edit_admin_metum_path(metum), class: "btn btn-primary" %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
