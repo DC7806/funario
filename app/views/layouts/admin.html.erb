@@ -4,8 +4,8 @@
     <title>Funario | Backyard</title>
     <meta name="viewport"              content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <div class="container-fluid">
@@ -71,22 +71,21 @@
         $(this).closest('li').addClass("active");
       });
     </script>
-    <!-- dropdown select manual input -->
-    <script type="text/javascript">
-      $('#admin_article_author').change(function(){
-        if ($(this).val() == 'other'){
-          $('#admin_article_custom_author').removeClass('invisible');
-        }
-        else if ($(this).val() !== 'other'){
-          $('#admin_article_custom_author').addClass('invisible');
-        }
-      })
-    </script>
     <!-- to be revised as rails active link -->
     <script type="text/javascript">
       $('.input-group-btn').on('click', function(){
         $('#visibility-toggle').removeClass('invisible')
       })
     </script>
+    <!-- <script type="text/javascript">
+      $('#admin_article_author').change(function(){
+  if ($(this).val() == 'other'){
+    $('#admin_article_custom_author').removeClass('invisible');
+  }
+  else if ($(this).val() !== 'other'){
+    $('#admin_article_custom_author').addClass('invisible');
+  }
+})
+    </script> -->
   </body>
 </html>

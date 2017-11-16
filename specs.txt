@@ -15,7 +15,9 @@ Specs
 3. editor (ckEditor gem)(V)
 
 4. Search Engine Optimization(SEO)
-	5.1 tittle, description, og (dynamnic pages V) static pages (TO DO)
+	5.1 tittle, description, og 
+		5.1.1 dynamnic pages (V) 
+		5.1.2 static pages
 	5.2 bread crumb (removed)
 	5.3 sitemap (sitemap_generator gem)
 	5.4 url (V)
@@ -26,8 +28,12 @@ Specs
 	6.1 commentable (disqus) (V)
 	6.2 recommendable (removed)
 	6.3 slideshow
+		6.3.1 #show (V)
+		6.3.2 #home
 	6.4 tagable (acts-as-taggable-on gem) (V)
-	6.5 paginatable (kaminari gem) (backend V)
+	6.5 paginatable (kaminari gem)
+		6.5.1 backend (V)
+		6.5.2 frontend
 	6.6 preview (?)
 
 7. search (pg_search gem)
@@ -36,8 +42,7 @@ Specs
 8. schedule (whenever gem)
 
 9. static pages
-	9.1 homepage (V)
-		9.1.1 has slideshow
+	9.1 homepage
 	9.2 authors (V)
 
 TBD
@@ -55,6 +60,9 @@ To Ask
 /////////////////////////////////////////////////
 1. input name=date_range[date_from], how does it pick up at controller by params[:date_range]?
 2. uploaded image path sanitize_regexp : config -> initilizers -> carrierwave.rb
+3. assets pipeline
+	3.1 require_self (reference 5X)
+	3.2 compression
 
 Look Up
 /////////////////////////////////////////////////
