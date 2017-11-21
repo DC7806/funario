@@ -1,3 +1,4 @@
+<style>
 <% if @article.slide_images.count > 1 %>
   <%=  
 ".cb-slideshow li span { 
@@ -119,4 +120,5 @@
     -ms-animation-delay: #{ 6 * (i - 1) }s;
     animation-delay: #{ 6 * (i - 1) }s;
     }" %>
-<% end %>
+<% end %>    
+</style>

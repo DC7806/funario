@@ -1,0 +1,86 @@
+<style>
+  /* Slider Pagger arrow event */
+  <% for i in 0..@sliders.count-2 %>
+  .slide-radio<%= i+1 %>:checked ~ .next .numb<%= i+2 %>,
+  .slide-radio<%= i+2 %>:checked ~ .previous .numb<%= i+1 %> {
+    display: block;
+    z-index: 1
+  }
+  <% end %>
+  /*.slide-radio1:checked ~ .next .numb2, 
+  .slide-radio2:checked ~ .next .numb3, 
+  .slide-radio3:checked ~ .next .numb4, 
+  .slide-radio2:checked ~ .previous .numb1, 
+  .slide-radio3:checked ~ .previous .numb2, 
+  .slide-radio4:checked ~ .previous .numb3 {
+    display: block;
+    z-index: 1
+  }*/
+
+  /* each slide backgound color */  
+  /* Slider Pagger event */
+  /* Slider slide effect */
+  <% for i in 0..@sliders.count-1 %>
+  .slide<%= i + 1%> {
+    left: <%= i * 100 %>%;
+  }
+  .slide-radio<%= i+1 %>:checked ~ .slider-pagination .page<%= i+1 %> {
+    background: rgba(255,255,255,1)
+  }
+  .slide-radio<%= i+1 %>:checked ~ .slider {
+    -webkit-transform: translateX(<%= -i*100 %>%);
+    transform: translateX(<%= -i*100 %>%);
+  }
+  <% end %>
+  /* each slide backgound color */  
+  /*.slide1 {
+    left: 0;
+  }
+  .slide2 {
+    left: 100%
+  }
+  .slide3 {
+    left: 200%
+  }
+  .slide4 {
+    left: 300%;
+  }*/
+  /* Slider Pagger event */
+  /*.slide-radio1:checked ~ .slider-pagination .page1, 
+  .slide-radio2:checked ~ .slider-pagination .page2, 
+  .slide-radio3:checked ~ .slider-pagination .page3, 
+  .slide-radio4:checked ~ .slider-pagination .page4 {
+    background: rgba(255,255,255,1)
+  }*/
+
+  /* Slider slide effect */
+  /*.slide-radio1:checked ~ .slider {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+  .slide-radio2:checked ~ .slider {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  .slide-radio3:checked ~ .slider {
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%);
+  }
+  .slide-radio4:checked ~ .slider {
+    -webkit-transform: translateX(-300%);
+    transform: translateX(-300%);
+  }*/
+
+  /*.slide-radio1:checked ~ .slide1 h2,  
+  .slide-radio2:checked ~ .slide2 h2,  
+  .slide-radio3:checked ~ .slide3 h2,  
+  .slide-radio4:checked ~ .slide4 h2,  
+  .slide-radio1:checked ~ .slide1 .button,  
+  .slide-radio2:checked ~ .slide2 .button,  
+  .slide-radio3:checked ~ .slide3 .button,  
+  .slide-radio4:checked ~ .slide4 .button {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1
+  }*/
+</style>

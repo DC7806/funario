@@ -17,7 +17,7 @@ Specs
 4. Search Engine Optimization(SEO)
 	5.1 tittle, description, og 
 		5.1.1 dynamnic pages (V) 
-		5.1.2 static pages
+		5.1.2 static pages (V)
 	5.2 bread crumb (removed)
 	5.3 sitemap (sitemap_generator gem)
 	5.4 url (V)

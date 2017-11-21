@@ -1,0 +1,30 @@
+<div class="css-slider-wrapper">
+  <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+  <% for i in 1..@sliders.count-1 %>
+  <input type="radio" name="slider" class="slide-radio<%= i+1 %>" id="slider_<%= i+1 %>">
+  <% end %>
+  <div class="slider-pagination">
+    <% for i in 0..@sliders.count-1 %>
+    <label for="slider_<%= i+1 %>" class="page<%= i+1 %>"></label>
+    <% end %>
+  </div>
+  <div class="next control">
+    <% for i in 0..@sliders.count-1 %>
+    <label for="slider_<%= i+1 %>" class="numb<%= i+1 %>"><i class="fa fa-arrow-circle-right"></i></label>
+    <% end %>
+  </div>
+  <div class="previous control">
+    <% for i in 0..@sliders.count-1 %>
+    <label for="slider_<%= i+1 %>" class="numb<%= i+1 %>"><i class="fa fa-arrow-circle-left"></i></label>
+    <% end %>
+  </div>
+
+  <% @sliders.each_with_index do |slider, index| %>
+  <div class="slider slide<%= index+1 %>" style="background-image: url('<%= slider.image.url %>')">
+    <div>
+      <h2><%= slider.title %></h2>
+      <a href="<%= slider.url %>" class="button">ENTER</a> 
+    </div>
+  </div>
+  <% end %>
+</div>

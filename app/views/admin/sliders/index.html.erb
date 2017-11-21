@@ -1,0 +1,22 @@
+<h1>Sliders List</h1>
+<%= link_to "Add Sliders", new_admin_slider_path, class: "btn btn-default" %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Image</td>
+      <td>Title</td>
+      <td>URL</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_sliders.each do |slider|%>
+    <tr>
+      <td><%= image_tag slider.image, style: "width:200px" %></td>
+      <td><%= slider.title %></td>
+      <td><%= slider.url %></td>
+      <td><%= link_to "Edit", edit_admin_slider_path(slider), class: "btn btn-primary" %></td>
+      <td><%= link_to "Delete", admin_slider_path(slider), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
