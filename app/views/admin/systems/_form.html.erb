@@ -1,0 +1,36 @@
+<%= form_for @system do |f| %>
+  <div class="form-group row">
+    <%= f.label :logo, "Logo" %>
+    <%= f.file_field :logo %>
+    <%= image_tag @system.logo, class: "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :facebook_id, "Facebook ID" %>
+    <%= f.text_field :facebook_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gtm_id, "GTM" %>
+    <%= f.text_field :gtm_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ga_id, "Google Analytics ID" %>
+    <%= f.text_field :ga_id, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :fb_pixel, "Facebook Pixel" %>
+    <%= f.text_field :fb_pixel, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :css_version, "Custom CSS Version" %>
+    <%= f.text_field :css_version, class: "form-control" %>
+  </div>
+
+
+  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
+
+<% end %>

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   #admin
   namespace :admin, path: 'backyard' do
     resources :articles, :authors, :sliders, except: [:show]
-    resources :meta, except: [:new, :create, :destroy]
+    resources :meta, only: [:index, :edit, :update]
+    resources :systems, only: [:edit, :update]
     root "articles#index"
   end
   

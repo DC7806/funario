@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :seo_tags
+  before_action :seo_tags, :system
 
   def seo_tags
     @seo = {
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
             type:             "website",
             url:              request.url,
             } 
+  end
+
+  def system
+    @system = System.first
   end
 
 end

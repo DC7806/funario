@@ -14,7 +14,7 @@
   
   <!-- og -->
   <meta property="og:site_name"      content="Funario" />
-  <meta property="og:app_id"         content="" />
+  <meta property="og:app_id"         content="<%= @system.facebook_id %>" />
   <%= og_tag @og %>
   
   <!-- css -->
@@ -32,7 +32,9 @@
   <div class="container">
     <%= yield %>
   </div>
-  <%= render "layouts/analytics" %>
+  <%= analytics_gtm_tag %>
+  <%= analytics_ga_tag %>
+  <%= analytics_fb_tag %>
 </body>
 
 </html>

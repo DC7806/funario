@@ -7,6 +7,17 @@ module ApplicationHelper
       end
     end
   end
+
+  def analytics_gtm_tag
+    render 'analytics/gtm' if @system.gtm_id.present?
+  end
+  def analytics_ga_tag
+    render 'analytics/ga' if @system.ga_id.present?
+  end
+  def analytics_fb_tag
+    render 'analytics/fb' if @system.fb_pixel.present?
+  end
+
 end
 
 # <form action="/file-upload" class="dropzone">

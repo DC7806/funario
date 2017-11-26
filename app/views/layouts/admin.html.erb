@@ -31,6 +31,7 @@
                   <li><%= link_to 'Articles', admin_articles_path %></li>
                   <li><%= link_to 'Authors', admin_authors_path %></li>
                   <li><%= link_to 'Meta', admin_meta_path %></li>
+                  <li><%= link_to 'System', edit_admin_system_path(System.first) %></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li>
@@ -79,15 +80,5 @@
         $('#visibility-toggle').removeClass('invisible')
       })
     </script>
-    <!-- <script type="text/javascript">
-      $('#admin_article_author').change(function(){
-  if ($(this).val() == 'other'){
-    $('#admin_article_custom_author').removeClass('invisible');
-  }
-  else if ($(this).val() !== 'other'){
-    $('#admin_article_custom_author').addClass('invisible');
-  }
-})
-    </script> -->
   </body>
 </html>
