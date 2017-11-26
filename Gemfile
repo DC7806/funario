@@ -46,6 +46,8 @@ gem 'devise'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 # search
 gem 'pg_search'
+#sitemap
+gem 'sitemap_generator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

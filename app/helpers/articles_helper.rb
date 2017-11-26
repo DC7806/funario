@@ -50,11 +50,11 @@ module ArticlesHelper
   end
   # slides
   def slides_tag
-    render "slides" if @article.present?
+    render "slides" if @article.slide_images.present?
   end
   # slides style
   def slides_style_tag
-    render "slides_style" if @article.present?
+    render "slides_style" if @article.slide_images.present?
   end
 end
 

@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  layout 'layouts/article', only: [:show]
   def index
     if params[:tag]
       @articles = Article.tagged_with(params[:tag]) 

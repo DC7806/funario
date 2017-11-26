@@ -14,12 +14,12 @@ Specs
 
 3. editor (ckEditor gem)(V)
 
-4. Search Engine Optimization(SEO)
+4. Search Engine Optimization
 	5.1 tittle, description, og 
 		5.1.1 dynamnic pages (V) 
 		5.1.2 static pages (V)
 	5.2 bread crumb (removed)
-	5.3 sitemap (sitemap_generator gem)
+	5.3 sitemap (sitemap_generator gem) (V)
 	5.4 url (V)
 
 5. social share (gem)
@@ -29,7 +29,7 @@ Specs
 	6.2 recommendable (removed)
 	6.3 slideshow
 		6.3.1 #show (V)
-		6.3.2 #home
+		6.3.2 #home (V)
 	6.4 tagable (acts-as-taggable-on gem) (V)
 	6.5 paginatable (kaminari gem)
 		6.5.1 backend (V)
@@ -42,7 +42,7 @@ Specs
 8. schedule (whenever gem)
 
 9. static pages
-	9.1 homepage
+	9.1 homepage (V)
 	9.2 authors (V)
 
 TBD
