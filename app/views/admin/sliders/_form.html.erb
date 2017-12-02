@@ -1,4 +1,4 @@
-<%= form_for slider do |f| %>
+ <%= form_for slider do |f| %>
   <div class="form-group">
     <%= f.label :title, "Title" %>
     <%= f.text_field :title, class: "form-control" %>
@@ -11,10 +11,17 @@
 
   <div class="form-group">
     <%= f.label :image, "Slide Image" %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "dropify" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :slider_index, "Index" %>
+    <%= f.text_field :slider_index, class: "form-control" %>
   </div>
 
   <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
-  <%= link_to "cancel", admin_authors_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
+  <%= link_to "cancel", admin_sliders_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
 
 <% end %>
+
+<%= render 'admin/share/dropify' %>

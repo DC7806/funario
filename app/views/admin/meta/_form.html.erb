@@ -9,9 +9,12 @@
   </div>
   <div class="form-group">
     <%= f.label :og_image, "OG Image" %>
-    <%= f.file_field :og_image %>
-    <%= image_tag @metum.og_image, style: "width:100%"%>
+    <%= f.file_field :og_image, class: "dropify", "data-default-file": @metum.og_image %>
   </div>
-  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
-  <%= link_to "cancel", admin_meta_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
+  <div style="margin: 20px 0">
+    <%= f.submit 'confirm', class: "btn btn-primary form-control"%>
+    <%= link_to "cancel", admin_meta_path, class: "btn btn-default form-control", style: "margin-top: 20px"%>
+  </div>
 <% end %>
+
+<%= render 'admin/share/dropify' %>

@@ -1,56 +1,82 @@
 <%= form_for article do |f| %>
-
-  <div class="form-group">
-    <%= f.label :author, "Author" %>
-    <%= f.select :author, options_for_select(Author.pluck(:name)+ ["other"]), { include_blank: " - SELECT - " }, {class: "form-control"} %>
-    <%= f.text_field :custom_author, class: "form-control invisible" %>
+  <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px; margin-bottom: 20px">
+    <li class="active"><a role="tab" href="#basic" data-toggle="tab">基本資料</a></li>
+    <li ><a role="tab" href="#slide" data-toggle="tab">輪播圖</a></li>
+    <li ><a role="tab" href="#content" data-toggle="tab">內容</a></li>
+    <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="basic">
+      <div class="form-group">
+        <%= f.label :author, "Author" %>
+        <%= f.select :author, options_for_select(Author.pluck(:name)+ ["other"]), { include_blank: " - SELECT - " }, {class: "form-control"} %>
+        <%= f.text_field :custom_author, class: "form-control invisible" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, "Description" %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image, "Cover Image" %>
+        <%= f.file_field :image, class: "dropify", "data-default-file": @admin_article.image %>
+        <%= f.label :cover_image_alt, "Cover Image Alt" %>
+        <%= f.text_field :cover_image_alt, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :tag_list, "Tags (seperate by comma)" %>
+        <%= f.text_field :tag_list, input_html: {value: f.object.tag_list.to_s}, class: "form-control" %>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="slide">
+      <div class="form-group">
+        <%= f.label :slide_images, "Slide Images" %>
+        <%= f.file_field :slide_images, multiple: true, class: "dropify" %>
+        <div class="slide-images row">
+          <% @admin_article.slide_images.each do|image|%>
+          <%= image_tag image, class: "col-xs-12 col-sm-6 col-md-4", style: "margin-top:20px" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="content">
+      <div>
+        <%= f.label :content, "Content" %>
+        <%= f.cktext_area :content , class: "form-control", style: "min-height: 100px"%>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="seo">
+      <div class="form-group">
+        <%= f.label :permalink, "URL" %>
+        <%= f.text_field :permalink, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :meta_description, "Meta Description" %>
+        <%= f.text_area :meta_description, class: "form-control", style: "min-height:100px" %>
+      </div>
+    </div>
+  </div> 
+  <div style="margin:20px 0">
+    <%= f.submit 'confirm', class: "btn btn-primary form-control"%>
+    <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %> 
   </div>
-
-  <div class="form-group">
-    <%= f.label :title, "Title" %>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description, "Description" %>
-    <%= f.text_field :description, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :slide_images, "Slide Images" %>
-    <%= f.file_field :slide_images, multiple: true %>
-  </div>
-  <!-- , name: 'admin_article[slide_images]' -->
-  
-  <div class="form-group">
-    <%= image_tag @admin_article.image, style: "width:100%"%>
-    <%= f.label :cover_image_alt, "Cover Image Alt" %>
-    <%= f.text_field :cover_image_alt, class: "form-control" %>
-    <%= f.label :image, "Cover Image" %>
-    <%= f.file_field :image %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :meta_description, "Meta Description" %>
-    <%= f.text_field :meta_description, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :permalink, "URL" %>
-    <%= f.text_field :permalink, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= f.label :content, "Content" %>
-    <%= f.cktext_area :content , class: "form-control", style: "min-height: 100px"%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :tag_list, "Tags (seperate by comma)" %>
-    <%= f.text_field :tag_list, input_html: {value: f.object.tag_list.to_s}, class: "form-control" %>
-  </div>
-
-  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin-top: 20px"%>
-  <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %>
 
 <% end %>
+
+<%= render 'admin/share/dropify' %>
+
+  <!-- <div class="row">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a role="tab" href="#Title" data-toggle="tab">Title</a></li>
+      <li ><a role="tab" href="#Des" data-toggle="tab">Des</a></li>
+      <li ><a role="tab" href="#Image" data-toggle="tab">OG Image</a></li>
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="Title">aaa</div>
+      <div role="tabpanel" class="tab-pane fade" id="Des">bbb</div>
+      <div role="tabpanel" class="tab-pane fade" id="Image">ccc</div>
+    </div>
+  </div> -->

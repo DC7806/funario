@@ -2,7 +2,7 @@ class Admin::SlidersController < AdminController
   before_action :find_slide, only: [:edit, :update, :destroy]
 
   def index
-    @admin_sliders = Admin::Slider.all
+    @admin_sliders = Admin::Slider.all.order(slider_index: :asc)
   end
 
   def new
@@ -36,9 +36,9 @@ class Admin::SlidersController < AdminController
 
   private
   def find_slide
-    @slide = Admin::Slider.find(id: params[:id])
+    @admin_slider = Admin::Slider.find_by(id: params[:id])
   end
   def slide_params
-    params.require(:admin_slider).permit(:image, :title, :url)
+    params.require(:admin_slider).permit(:image, :title, :url, :slider_index)
   end
 end

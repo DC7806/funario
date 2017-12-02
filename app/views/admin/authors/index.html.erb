@@ -1,21 +1,54 @@
+<style type="text/css">
+  .add-new{
+    margin: 20px 0;
+  }
+  tbody > tr:hover {
+    background: #e7e7e7
+  }
+  td {
+    vertical-align: middle!important
+  }
+  tbody td > a:nth-child(2){
+    margin: 3px 0;
+  }
+  @media only screen and (max-width: 767px){
+    tbody > tr {
+      display: block;
+      background: #e7e7e7;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    table tbody td {
+      display: block!important
+    }
+    .table > tbody > tr > td{
+      border-top: none;
+      text-align: center;
+    }
+  }
+</style>
+
 <h1>Authors List</h1>
-<%= link_to "Add Authors", new_admin_author_path, class: "btn btn-default" %>
+<%= link_to "Add Authors", new_admin_author_path, class: "btn btn-default add-new" %>
 <table class="table">
-  <thead>
+  <thead class="hidden-xs">
     <tr>
-      <td>Name</td>
-      <td>Nickname</td>
-      <td>Summary</td>
+      <td class="col-sm-2">Name</td>
+      <td class="col-sm-2">Nickname</td>
+      <td class="col-sm-7">Summary</td>
     </tr>
   </thead>
   <tbody>
     <% @authors.each do |author|%>
     <tr>
-      <td><%= author.name %></td>
-      <td><%= author.nickname %></td>
-      <td><%= author.summary %></td>
-      <td><%= link_to "Edit", edit_admin_author_path(author), class: "btn btn-primary" %></td>
-      <td><%= link_to "Delete", admin_author_path(author), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
+      <td class="col-sm-2"><%= author.name %></td>
+      <td class="col-sm-2"><%= author.nickname %></td>
+      <td class="col-sm-7"><%= author.summary %></td>
+      <td class="col-sm-1">
+        <%= link_to edit_admin_author_path(author), class: "btn btn-primary" do %><i class="fa fa-bolt fa-fw"></i><% end %>
+        <%= link_to admin_author_path(author), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do %><i class="fa fa-bomb fa-fw"></i><% end %>
+      </td>
     </tr>
     <%end%>
   </tbody>

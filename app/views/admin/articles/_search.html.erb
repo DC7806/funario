@@ -3,7 +3,9 @@
     <%= text_field_tag :query, params[:query], placeholder: "Search Here", class: "form-control"%>
     <!-- wrong: text_field_tag 'Search' -->
     <span class="input-group-btn">
-      <%= submit_tag 'Search', class: "btn btn-default", style: "min-width:100px" %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+        <i class="fa fa-search"></i>
+      <% end %>
     </span> 
   </div>
 <% end %>

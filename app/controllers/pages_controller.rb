@@ -8,6 +8,6 @@ class PagesController < ApplicationController
             description:      Metum.find(1).meta_description,
             image:            Metum.find(1).og_image.url
           }
-    @sliders = Slider.all 
+    @sliders = Slider.all.order(slider_index: :asc)
   end
 end

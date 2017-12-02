@@ -1,21 +1,65 @@
+<style type="text/css">
+  .add-new{
+    margin: 20px 0;
+  }
+  tbody > tr:hover {
+    background: #e7e7e7
+  }
+  td {
+    vertical-align: middle!important
+  }
+  table img{
+    width: 100%;
+  }
+  @media only screen and (max-width: 767px){
+    .add-new{
+      width: 100%;
+    }
+    tbody > tr {
+      display: block;
+      background: #e7e7e7;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    table tbody td {
+      display: block!important
+    }
+    .table > tbody > tr > td{
+      border-top: none;
+      text-align: center;
+    }
+  }
+</style>
 <h1>Sliders List</h1>
-<%= link_to "Add Sliders", new_admin_slider_path, class: "btn btn-default" %>
+<%= link_to "Add Sliders", new_admin_slider_path, class: "btn btn-default add-new" %>
 <table class="table">
-  <thead>
+  <thead class="hidden-xs">
     <tr>
-      <td>Image</td>
-      <td>Title</td>
-      <td>URL</td>
+      <td class="col-sm-3 col-md-2">Image</td>
+      <td class="col-sm-4">Title</td>
+      <td class="col-sm-3 col-md-4">URL</td>
+      <td class="col-sm-1">Order</td>
     </tr>
   </thead>
   <tbody>
     <% @admin_sliders.each do |slider|%>
     <tr>
-      <td><%= image_tag slider.image, style: "width:200px" %></td>
-      <td><%= slider.title %></td>
-      <td><%= slider.url %></td>
-      <td><%= link_to "Edit", edit_admin_slider_path(slider), class: "btn btn-primary" %></td>
-      <td><%= link_to "Delete", admin_slider_path(slider), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" %></td>
+      <td class="col-sm-3 col-md-2"><%= image_tag slider.image %></td>
+      <td class="col-sm-4"><%= slider.title %></td>
+      <td class="col-sm-3 col-md-4"><%= slider.url %></td>
+      <td class="col-sm-1">
+        <%= form_for slider do |f| %>
+        <%= f.text_field :slider_index, placeholder: "order",class: "form-control" %>
+          <%= button_tag(type: "submit", class: "btn btn-default form-control", style: "margin:3px 0") do %>
+          <i class="fa fa-hand-spock-o fa-fw"></i>
+          <% end %>
+        <% end %>
+      </td>
+      <td class="col-sm-1">
+        <%= link_to edit_admin_slider_path(slider), class: "btn btn-primary" do %><i class="fa fa-fw fa-bolt"></i> <% end %>
+        <%= link_to admin_slider_path(slider), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger", style: "margin:3px 0" do %><i class="fa fa-fw fa-bomb"></i><% end %>
+      </td>
     </tr>
     <%end%>
   </tbody>

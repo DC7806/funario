@@ -1,0 +1,11 @@
+<div class="col-sm-8 col-sm-offset-2 text-center">
+  <div class="row">
+    <h2>本月文章總數</h2>
+    <p style="font-size: 160px; color: green"><%= @articles.this_month.count %></p>
+  </div>
+  <div class="row">
+    <h2>文章總數</h2>
+    <p style="font-size: 100px"><%= @articles.count %></p>
+  </div>
+  <%= link_to "！還不快寫！", admin_articles_path, class: "btn btn-default" %>
+</div>
