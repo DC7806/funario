@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #admin
   get 'backyard/dashboard', to: 'admin#dashboard', as: :admin_root
   namespace :admin, path: 'backyard' do
-    resources :articles, :authors, :sliders, except: [:show]
+    resources :articles, :authors,:sliders, except: [:show]
     resources :meta, only: [:index, :edit, :update]
     resources :systems, only: [:edit, :update]
   end

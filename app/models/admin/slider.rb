@@ -1,2 +1,2 @@
-class Admin::Slider < Slider
+class Admin::Slider < Slider 
 end
