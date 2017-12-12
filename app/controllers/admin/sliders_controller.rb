@@ -13,6 +13,7 @@ class Admin::SlidersController < AdminController
     @admin_slider = Admin::Slider.new(slide_params)
     if @admin_slider.save
       redirect_to admin_sliders_path
+      flash[:notice] = 'New Slider Created'
     else
       render :new
     end
@@ -24,6 +25,7 @@ class Admin::SlidersController < AdminController
   def update
     if @admin_slider.update(slide_params)
       redirect_to admin_sliders_path
+      flash[:notice] = 'Slider Updated'
     else
       render :edit
     end
@@ -32,13 +34,7 @@ class Admin::SlidersController < AdminController
   def destroy
     @admin_slider.destroy if @admin_slider
     redirect_to admin_root_path
-  end
-
-  def sort 
-    params[:admin_sliders].each_with_index do |id, index|
-      Admin::Slider.where(id: id).update_all(position: index + 1)
-    end 
-    head :ok
+    flash[:notice] = 'Slider Deleted'
   end
 
   private

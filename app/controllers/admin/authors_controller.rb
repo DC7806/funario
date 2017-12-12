@@ -13,6 +13,7 @@ class Admin::AuthorsController < AdminController
     @author = Admin::Author.new(author_params)
     if @author.save
       redirect_to admin_authors_path
+      flash[:notice] = 'New Author Created'
     else
       render :new
     end
@@ -25,6 +26,7 @@ class Admin::AuthorsController < AdminController
   def update
      if @author.update(author_params)
       redirect_to admin_authors_path
+      flash[:notice] = 'Author Updated'
     else
       render :edit
     end
@@ -33,6 +35,7 @@ class Admin::AuthorsController < AdminController
   def destroy
     @author.destroy if @author
     redirect_to admin_authors_path
+    flash[:notice] = 'Article Deleted'
   end
 
 

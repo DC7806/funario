@@ -6,13 +6,13 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all.order(created_at: :desc)
     end
-    @title = Metum.find(3).title
-    @seo = {description: Metum.find(3).meta_description}
+    @title = Metum.where(page_name: :articles)[0].title
+    @seo = {description: Metum.where(page_name: :articles)[0].meta_description}
     @og = {
             type:             "website",
             url:              request.url,
-            description:      Metum.find(3).meta_description,
-            image:            Metum.find(3).og_image.url
+            description:      where(page_name: :articles)[0].meta_description,
+            image:            where(page_name: :articles)[0].og_image.url
           }
   end
   def show

@@ -12,6 +12,7 @@ class Admin::MetaController < AdminController
   def update
     if @metum.update(metum_params)
       redirect_to admin_meta_path
+      flash[:notice] = 'Meta Updated'
     else
       render :edit
     end

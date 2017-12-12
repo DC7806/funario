@@ -116,6 +116,7 @@
         &:hover, &:focus {
           background-color: $navbar-default-link-hover-bg;
           color: $navbar-default-link-hover-color;
+          border-left: #777 2px solid
         }
       }
     }

@@ -6,4 +6,5 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require admin/admin_article_author
+//= require bootstrap-datepicker
 //= require_tree ./admin

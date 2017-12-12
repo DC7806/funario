@@ -8,7 +8,7 @@ class Admin::SystemsController < AdminController
   def update
     if @system.update(system_params)
       redirect_to edit_admin_system_path(@system)
-      flash[:notice] = '更新成功'
+      flash[:notice] = 'System Updated'
     else
       render :edit
     end

@@ -14,12 +14,14 @@ class Admin::ArticlesController < AdminController
 
   def new
     @admin_article = Admin::Article.new
+    @admin_slider = @admin_article.build_detail_page_slider
   end
 
   def create
     @admin_article = Admin::Article.new(article_params)
     if @admin_article.save
       redirect_to admin_articles_path
+      flash[:notice] = 'New Article Created'
     else
       render :new
     end
@@ -31,6 +33,7 @@ class Admin::ArticlesController < AdminController
   def update
      if @admin_article.update(article_params)
       redirect_to admin_articles_path
+      flash[:notice] = 'Article Updated'
     else
       render :edit
     end
@@ -39,6 +42,7 @@ class Admin::ArticlesController < AdminController
   def destroy
     @admin_article.destroy if @admin_article
     redirect_to admin_articles_path
+    flash[:notice] = 'Article Deleted'
   end
 
   private

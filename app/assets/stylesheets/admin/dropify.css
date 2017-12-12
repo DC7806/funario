@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'dropify';
-  src: url('/app/assets/fonts/dropify/dropify.eot');
+  /* src: url('/app/assets/fonts/dropify/dropify.eot');
   src: url('/app/assets/fonts/dropify/dropify.eot#iefix') format('embedded-opentype'), 
        url('/app/assets/fonts/dropify/dropify.woff') format('woff'),
        url('/app/assets/fonts/dropify/dropify.ttf') format('truetype'),
        url('/app/assets/fonts/dropify/dropify.svg#dropify') format('svg');
-  font-weight: normal;
+  font-weight: normal; */
   font-style: normal; }
 
 [class^="dropify-font-"]:before, [class*=" dropify-font-"]:before, .dropify-font:before, .dropify-wrapper .dropify-message span.file-icon:before, .dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-filename span.file-icon:before {
