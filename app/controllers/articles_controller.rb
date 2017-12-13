@@ -11,8 +11,8 @@ class ArticlesController < ApplicationController
     @og = {
             type:             "website",
             url:              request.url,
-            description:      where(page_name: :articles)[0].meta_description,
-            image:            where(page_name: :articles)[0].og_image.url
+            description:      Metum.where(page_name: :articles)[0].meta_description,
+            image:            Metum.where(page_name: :articles)[0].og_image.url
           }
   end
   def show
