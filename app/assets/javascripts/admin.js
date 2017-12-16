@@ -3,7 +3,7 @@
 //= require jquery-ui/widgets/sortable 
 //= require rails_sortable
 //= require bootstrap
-//= require turbolinks
+
 //= require ckeditor/init
 //= require admin/admin_article_author
 //= require bootstrap-datepicker

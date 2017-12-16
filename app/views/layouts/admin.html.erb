@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Funario | Backyard</title>
+    <title>Backyard | Funario</title>
     <meta name="viewport"              content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -33,14 +33,11 @@
                   <li><%= link_to 'Authors', admin_authors_path %></li>
                   <li><%= link_to 'Meta', admin_meta_path %></li>
                   <li><%= link_to 'System', edit_admin_system_path(System.first) %></li>
+                  <li><%= link_to 'Password', edit_user_registration_path %></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li>
-                    <% if user_signed_in? %>
-                    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>   
-                    <% else %>
-                    <%= link_to 'Login', new_user_session_path  %>  
-                    <% end %>
+                    <%= admin_status %>
                   </li>
                   <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -59,10 +56,7 @@
         </div>
         <div class="col-sm-9 col-lg-10">
           <div class="col-lg-10 col-lg-offset-1">
-            <div class="notification">
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-            </div>
+            <%= notice_msg %>
             <%= yield %>
           </div>
         </div>

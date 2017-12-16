@@ -16,7 +16,7 @@ module Admin::ArticlesHelper
           end
         end
       end
-    end
+    end.html_safe
   end 
 
 end
