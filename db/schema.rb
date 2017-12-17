@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213031530) do
+ActiveRecord::Schema.define(version: 20171216091529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20171213031530) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "summary"
+  end
+
+  create_table "carousels", force: :cascade do |t|
+    t.string "image"
+    t.integer "sort"
+    t.string "carouselable_type"
+    t.bigint "carouselable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carouselable_type", "carouselable_id"], name: "index_carousels_on_carouselable_type_and_carouselable_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

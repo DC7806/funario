@@ -14,7 +14,7 @@ class Admin::ArticlesController < AdminController
 
   def new
     @admin_article = Admin::Article.new
-    @admin_slider = @admin_article.build_detail_page_slider
+    @admin_carousel = @admin_article.carousels.build
   end
 
   def create
@@ -28,10 +28,11 @@ class Admin::ArticlesController < AdminController
   end
 
   def edit
+    @admin_carousels = @admin_article.carousels.order(:sort).all
   end
 
   def update
-     if @admin_article.update(article_params)
+     if @admin_article.update_attributes(article_params)
       redirect_to admin_articles_path
       flash[:notice] = 'Article Updated'
     else
@@ -47,7 +48,9 @@ class Admin::ArticlesController < AdminController
 
   private
   def article_params
-    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description, :permalink, :image, :cover_image_alt, :content, :tag_list, {slide_images: []})
+    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description,
+                                          :permalink, :image, :cover_image_alt, :content, :tag_list, {slide_images: []},
+                                          {carousels_attributes: [:id, :image, :_destroy]})
   end
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])  

@@ -8,6 +8,7 @@ module AdminHelper
     end
   end
 
+  # not working correctly 
   def notice_msg
     if notice
       content_tag :div, class: "alert alert-info alert-dismissable", role: "alert" do

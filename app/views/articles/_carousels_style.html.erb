@@ -1,5 +1,5 @@
 <style>
-<% if @article.slide_images.count > 1 %>
+<% if @carousels.count > 1 %>
   <%=  
 ".cb-slideshow li span { 
     opacity: 0;
@@ -89,21 +89,21 @@
   /* slides_timer */
   .cb-slideshow li span { 
   -webkit-backface-visibility: hidden;
-    -webkit-animation: imageAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -moz-animation: imageAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -o-animation: imageAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -ms-animation: imageAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    animation: imageAnimation #{@article.slide_images.count * 6}s linear infinite 0s; 
+    -webkit-animation: imageAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -moz-animation: imageAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -o-animation: imageAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -ms-animation: imageAnimation #{@carousels.count * 6}s linear infinite 0s;
+    animation: imageAnimation #{@carousels.count * 6}s linear infinite 0s; 
     }
   .cb-slideshow li div { 
-    -webkit-animation: titleAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -moz-animation: titleAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -o-animation: titleAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    -ms-animation: titleAnimation #{@article.slide_images.count * 6}s linear infinite 0s;
-    animation: titleAnimation #{@article.slide_images.count * 6}s linear infinite 0s; 
+    -webkit-animation: titleAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -moz-animation: titleAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -o-animation: titleAnimation #{@carousels.count * 6}s linear infinite 0s;
+    -ms-animation: titleAnimation #{@carousels.count * 6}s linear infinite 0s;
+    animation: titleAnimation #{@carousels.count * 6}s linear infinite 0s; 
     }" %>
 <% end %>
-<% for i in 2..@article.slide_images.count %>
+<% for i in 2..@carousels.count %>
   <%= ".cb-slideshow li:nth-child(#{i}) span { 
     -webkit-animation-delay: #{ 6 * (i - 1) }s;
     -moz-animation-delay: #{ 6 * (i - 1) }s;
@@ -112,7 +112,7 @@
     animation-delay: #{ 6 * (i - 1) }s;
     }" %>
 <% end %>
-<% for i in 2..@article.slide_images.count %>
+<% for i in 2..@carousels.count %>
   <%= ".cb-slideshow li:nth-child(#{i}) div { 
     -webkit-animation-delay: #{ 6 * (i - 1) }s;
     -moz-animation-delay: #{ 6 * (i - 1) }s;

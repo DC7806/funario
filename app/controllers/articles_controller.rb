@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  layout 'layouts/article', only: [:show]
+  before_action :find_article, only: :show
+  layout 'layouts/article', only: :show
+  
   def index
     if params[:tag]
       @articles = Article.tagged_with(params[:tag]) 
@@ -16,7 +18,7 @@ class ArticlesController < ApplicationController
           }
   end
   def show
-    @article = Article.find_by(permalink: params[:id])
+    # @article = Article.find_by(permalink: params[:id])
     @title = @article.title
     @seo = {
             description:      @article.meta_description ,
@@ -27,7 +29,17 @@ class ArticlesController < ApplicationController
             url:              request.url,
             description:      @article.meta_description,
             image:            @article.image.url
-            }           
+            }
+    @carousels = @article.carousels
+  end
+  
+  private
+  def find_article
+    @article = Article.find_by(permalink: params[:id])
+    if @article.blank?
+      redirect_to articles_path
+      flash[:notice] = "Page Not Found"
+    end
   end
   # @seo = {
   #     meta: {
@@ -50,6 +62,5 @@ class ArticlesController < ApplicationController
   #       :"image:height" => @post.image_height
   #     }
   #   }
-
 
 end

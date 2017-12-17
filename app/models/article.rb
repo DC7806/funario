@@ -1,4 +1,9 @@
 class Article < ApplicationRecord
+
+  #association
+  has_many :carousels, as: :carouselable, dependent: :destroy
+  accepts_nested_attributes_for :carousels, allow_destroy: true
+  
   #carrierwave uploader
   mount_uploader :image, ImageUploader
   mount_uploaders :slide_images, SlideImagesUploader
@@ -13,5 +18,5 @@ class Article < ApplicationRecord
   
   #number of articles from this month
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
-  
+
 end

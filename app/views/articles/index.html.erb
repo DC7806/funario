@@ -4,7 +4,7 @@
   <% @articles.each do |article|%>
   <div class="col-sm-4">
     <h3><%= article.title %></h3>
-    <p><%= article.content %></p>
+    <p><%= article.content.html_safe %></p>
     <p><%= article.permalink %></p>
     <%= link_to "enter", article_path(article.permalink), class: "btn btn-primary" %>
   </div>

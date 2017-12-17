@@ -1,11 +1,12 @@
 <%= form_for article do |f| %>
   <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px; margin-bottom: 20px">
-    <li class="active"><a role="tab" href="#basic" data-toggle="tab">基本資料</a></li>
-    <li ><a role="tab" href="#slide" data-toggle="tab">輪播圖</a></li>
-    <li ><a role="tab" href="#content" data-toggle="tab">內容</a></li>
+    <li class="active"><a role="tab" href="#basic" data-toggle="tab">Basics</a></li>
+    <li ><a role="tab" href="#carousel" data-toggle="tab">Carousel</a></li>
+    <li ><a role="tab" href="#content" data-toggle="tab">Content</a></li>
     <li ><a role="tab" href="#seo" data-toggle="tab">SEO</a></li>
   </ul>
   <div class="tab-content">
+    <!-- Basic Info Panel -->
     <div role="tabpanel" class="tab-pane active" id="basic">
       <div class="form-group">
         <%= f.label :author, "Author" %>
@@ -31,17 +32,35 @@
         <%= f.text_field :tag_list, input_html: {value: f.object.tag_list.to_s}, class: "form-control" %>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="slide">
-      <div class="form-group">
-        <%= f.label :slide_images, "Slide Images" %>
-        <%= f.file_field :slide_images, multiple: true, class: "dropify" %>
-        <div class="slide-images row">
-          <% @admin_article.slide_images.each do|image|%>
-          <%= image_tag image, class: "col-xs-12 col-sm-6 col-md-4", style: "margin-top:20px" %>
+    <!-- carousel Panel-->
+    <div role="tabpanel" class="tab-pane fade row" id="carousel">
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <% if @admin_carousels.present? %>
+        <table class="table">
+          <tbody class="list-group sortable ">
+            <% @admin_carousels.each_with_sortable_id do |s, sortable_id| %>
+            <tr id="<%= sortable_id %>" class="" style=" padding-bottom: 15px">
+              <td class="col-xs-10" style="border-bottom: 1px solid #ddd">
+                <%= image_tag s.image, style: "width:100%" %>
+              </td>
+              <td class="col-xs-2 text-center" style="vertical-align: middle!important; border-bottom: 1px solid #ddd">
+                <%= link_to s, method: :delete, class: "btn btn-danger" do %><i class="fa fa-bomb fa-fw"></i><% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
         <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-7">
+        <div id="carousels">
+          <div class="links">
+            <%= link_to_add_association 'Add Image', f, :carousels, class: "btn btn-default form-control" %>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Content Panel -->
     <div role="tabpanel" class="tab-pane fade" id="content">
       <div>
         <%= f.label :content, "Content" %>
@@ -58,7 +77,8 @@
         <%= f.text_area :meta_description, class: "form-control", style: "min-height:100px" %>
       </div>
     </div>
-  </div> 
+  </div>
+  <!-- Form Submit--> 
   <div style="margin:20px 0">
     <%= f.submit 'confirm', class: "btn btn-primary form-control"%>
     <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %> 
@@ -68,15 +88,15 @@
 
 <%= render 'admin/share/dropify' %>
 
-  <!-- <div class="row">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="active"><a role="tab" href="#Title" data-toggle="tab">Title</a></li>
-      <li ><a role="tab" href="#Des" data-toggle="tab">Des</a></li>
-      <li ><a role="tab" href="#Image" data-toggle="tab">OG Image</a></li>
-    </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="Title">aaa</div>
-      <div role="tabpanel" class="tab-pane fade" id="Des">bbb</div>
-      <div role="tabpanel" class="tab-pane fade" id="Image">ccc</div>
-    </div>
-  </div> -->
+<!-- <div class="row">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a role="tab" href="#Title" data-toggle="tab">Title</a></li>
+    <li ><a role="tab" href="#Des" data-toggle="tab">Des</a></li>
+    <li ><a role="tab" href="#Image" data-toggle="tab">OG Image</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="Title">aaa</div>
+    <div role="tabpanel" class="tab-pane fade" id="Des">bbb</div>
+    <div role="tabpanel" class="tab-pane fade" id="Image">ccc</div>
+  </div>
+</div> -->

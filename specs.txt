@@ -61,8 +61,11 @@ To Ask
 1. input name=date_range[date_from], how does it pick up at controller by params[:date_range]?
 2. uploaded image path sanitize_regexp : config -> initilizers -> carrierwave.rb
 3. assets pipeline
-	3.1 require_self (reference 5X)
-	3.2 compression
+	3.1 compression
+
+4. redirect_back
+5. delete nested attributes without controller and route?
+6. deep nested content tags in helpers?
 
 Look Up
 /////////////////////////////////////////////////

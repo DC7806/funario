@@ -17,13 +17,13 @@ module ArticlesHelper
       end
     end
   end
-  # slides
-  def slides_tag
-    render "slides" if @article.slide_images.present?
+  # carousels markup
+  def carousels_tag
+    render "carousels" if @carousels.any?
   end
-  # slides style
-  def slides_style_tag
-    render "slides_style" if @article.slide_images.present?
+  # carousels style
+  def carousels_style_tag
+    render "carousels_style" if @carousels.any?
   end
 end
 

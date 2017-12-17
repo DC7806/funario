@@ -1,0 +1,7 @@
+<div class="slideshow-wrapper">
+  <ul class="cb-slideshow">
+    <% @carousels.each do|carousel|%>
+      <li><span style="background-image: url(<%= carousel.image %>)"></span></li>
+    <% end %>
+  </ul>
+</div>
