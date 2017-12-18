@@ -14,10 +14,11 @@
     </div>
   </div>
 
-  <%= editor_tag @article %>
-                   
-  <%= tagging_tag @article %>
-  
+
+  <%= link_to "Articles", articles_path(month: "11") %>
+
+  <%= editor_tag @article %>           
+  <%= tagging_tag @article %>  
   <%= render 'disqus' %>
 
 </div>

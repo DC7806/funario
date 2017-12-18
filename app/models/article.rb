@@ -19,4 +19,10 @@ class Article < ApplicationRecord
   #number of articles from this month
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
 
+  #group by month  (not working)
+  def by_month(month)
+    Article.where('extract(month from created_at) = ?', month)
+  end
+  # or using scope
+  # scope :by_month, lambda { |month| {:conditions => ["MONTH(created_at) = ?", month]}}
 end

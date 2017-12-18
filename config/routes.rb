@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/user/pasword/edit', to: 'devise/passwords#edit'
   namespace :admin, path: 'backyard' do
     resources :articles, :authors, :sliders, except: [:show]
-    resources :meta, only: [:index, :edit, :update]
+    resources :meta, :pins, only: [:index, :edit, :update]
     resources :systems, only: [:edit, :update]
   end
   

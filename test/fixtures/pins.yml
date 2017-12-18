@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  all: MyString
+  jan: MyString
+  feb: MyString
+  mar: MyString
+  apr: MyString
+  may: MyString
+  jun: MyString
+  jul: MyString
+  aug: MyString
+  sep: MyString
+  oct: MyString
+  nov: MyString
+  dec: MyString
+
+two:
+  all: MyString
+  jan: MyString
+  feb: MyString
+  mar: MyString
+  apr: MyString
+  may: MyString
+  jun: MyString
+  jul: MyString
+  aug: MyString
+  sep: MyString
+  oct: MyString
+  nov: MyString
+  dec: MyString

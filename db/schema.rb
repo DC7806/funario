@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216091529) do
+ActiveRecord::Schema.define(version: 20171218082456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20171216091529) do
   end
 
   create_table "admin_meta", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "admin_pins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +92,24 @@ ActiveRecord::Schema.define(version: 20171216091529) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "og_image"
+  end
+
+  create_table "pins", force: :cascade do |t|
+    t.string "all_results"
+    t.string "jan"
+    t.string "feb"
+    t.string "mar"
+    t.string "apr"
+    t.string "may"
+    t.string "jun"
+    t.string "jul"
+    t.string "aug"
+    t.string "sep"
+    t.string "oct"
+    t.string "nov"
+    t.string "dec"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sliders", force: :cascade do |t|

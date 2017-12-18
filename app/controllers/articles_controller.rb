@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
   def index
     if params[:tag]
       @articles = Article.tagged_with(params[:tag]) 
+    elsif params[:month]
+      @articles = Article.where('extract(month from created_at) = ?', params[:month])
+      ## not working ##
+      # @articles = Article.by_month(params[:month])
     else
       @articles = Article.all.order(created_at: :desc)
     end
@@ -31,8 +35,9 @@ class ArticlesController < ApplicationController
             image:            @article.image.url
             }
     @carousels = @article.carousels
+    @pin = Pin.first
   end
-  
+
   private
   def find_article
     @article = Article.find_by(permalink: params[:id])

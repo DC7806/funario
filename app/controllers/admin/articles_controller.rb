@@ -2,7 +2,7 @@ class Admin::ArticlesController < AdminController
   before_action :find_article, only: [:edit, :update, :destroy]
   
   def index
-    if params[:query]
+    if params[:query] #pg_search
       @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(3)
     elsif params[:date_range] # input name=date_range[date_from], how does it pick up?
       @search = DateRangeSearch.new(params[:date_range])
@@ -32,7 +32,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def update
-     if @admin_article.update_attributes(article_params)
+    if @admin_article.update_attributes(article_params)
       redirect_to admin_articles_path
       flash[:notice] = 'Article Updated'
     else

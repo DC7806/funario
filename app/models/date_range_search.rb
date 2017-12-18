@@ -20,4 +20,5 @@ class DateRangeSearch
   rescue ArgumentError, TypeError
     default
   end
+  
 end

@@ -1,0 +1,67 @@
+<%= form_for pin do |f| %>
+  <div class="form-group">
+    <%= f.label :all_results, "All" %>
+    <%= f.file_field :all_results, class: "form-control dropify", "data-default-file": @admin_pin.all_results %>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :jan, "Jan" %>
+      <%= f.file_field :jan, class: "form-control dropify", "data-default-file": @admin_pin.jan %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :feb, "Feb" %>
+      <%= f.file_field :feb, class: "form-control dropify", "data-default-file": @admin_pin.feb %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :mar, "Mar" %>
+      <%= f.file_field :mar, class: "form-control dropify", "data-default-file": @admin_pin.mar %>
+    </div>     
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :apr, "Apr" %>
+      <%= f.file_field :apr, class: "form-control dropify", "data-default-file": @admin_pin.apr %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :may, "May" %>
+      <%= f.file_field :may, class: "form-control dropify", "data-default-file": @admin_pin.may %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :jun, "Jun" %>
+      <%= f.file_field :jun, class: "form-control dropify", "data-default-file": @admin_pin.jun %>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :jul, "Jul" %>
+      <%= f.file_field :jul, class: "form-control dropify", "data-default-file": @admin_pin.jul %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :aug, "Aug" %>
+      <%= f.file_field :aug, class: "form-control dropify", "data-default-file": @admin_pin.aug %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :sep, "Sep" %>
+      <%= f.file_field :sep, class: "form-control dropify", "data-default-file": @admin_pin.sep %>
+    </div>     
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :oct, "Oct" %>
+      <%= f.file_field :oct, class: "form-control dropify", "data-default-file": @admin_pin.oct %>
+    </div>
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :nov, "Nov" %>
+      <%= f.file_field :nov, class: "form-control dropify", "data-default-file": @admin_pin.nov %>
+    </div>        
+    <div class="form-group col-xs-12 col-sm-4">
+      <%= f.label :dec, "Dec" %>
+      <%= f.file_field :dec, class: "form-control dropify", "data-default-file": @admin_pin.dec %>
+    </div>      
+  </div>
+
+  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin: 20px 0"%>
+
+<% end %>
+
+<%= render 'admin/share/dropify' %>
