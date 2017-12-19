@@ -6,9 +6,8 @@ class ArticlesController < ApplicationController
     if params[:tag]
       @articles = Article.tagged_with(params[:tag]) 
     elsif params[:month]
-      @articles = Article.where('extract(month from created_at) = ?', params[:month])
-      ## not working ##
-      # @articles = Article.by_month(params[:month])
+      ## by_month -- class method ##
+      @articles = Article.by_month(params[:month])
     else
       @articles = Article.all.order(created_at: :desc)
     end
@@ -20,9 +19,10 @@ class ArticlesController < ApplicationController
             description:      Metum.where(page_name: :articles)[0].meta_description,
             image:            Metum.where(page_name: :articles)[0].og_image.url
           }
+    @pins = Pin.first
   end
+
   def show
-    # @article = Article.find_by(permalink: params[:id])
     @title = @article.title
     @seo = {
             description:      @article.meta_description ,
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
             image:            @article.image.url
             }
     @carousels = @article.carousels
-    @pin = Pin.first
+    # @pin = Pin.first
   end
 
   private

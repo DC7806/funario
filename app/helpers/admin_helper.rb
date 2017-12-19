@@ -12,12 +12,12 @@ module AdminHelper
   def notice_msg
     if notice
       content_tag :div, class: "alert alert-info alert-dismissable", role: "alert" do
-        concat button_tag type: "button", class: "close", data: {dismiss: "alert"} do
+        b = button_tag type: "button", class: "close", data: {dismiss: "alert"} do
           content_tag :span, data: {hidden: true} do 
             "&times;".html_safe
           end
         end
-        concat notice
+        b + notice
       end.html_safe
     end
   end

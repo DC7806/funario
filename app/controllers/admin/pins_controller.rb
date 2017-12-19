@@ -1,15 +1,5 @@
 class Admin::PinsController < AdminController
-  before_action :find_pin, :pin_params
-
-  # def edit
-  #   @admin_pin = Admin::Pin.new(pin_params)
-  #   if @admin_pin.save
-  #     redirect_to edit_admin_pin_path
-  #     flash[:notice] = 'New pin Created'
-  #   else
-  #     render :new
-  #   end
-  # end
+  before_action :find_pin
 
   def edit
   end

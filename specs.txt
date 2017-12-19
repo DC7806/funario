@@ -66,7 +66,7 @@ To Ask
 4. redirect_back
 5. delete nested attributes without controller and route?
 6. deep nested content tags in helpers?
-7. methods for scope in Model(article.rb) undefined?
+7. Class Pin iteration
 
 Look Up
 /////////////////////////////////////////////////
