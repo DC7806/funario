@@ -1,4 +1,4 @@
-<%= form_for @system do |f| %>
+<%= form_for system do |f| %>
   <div class="form-group">
     <%= f.label :site_name, "Site Name" %>
     <%= f.text_field :site_name, class: "form-control" %>
@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <%= f.label :logo, "Logo" %>
-    <%= f.file_field :logo, class: "dropify", "data-default-file": @system.logo %>
+    <%= f.file_field :logo, class: "dropify", "data-default-file": @admin_system.logo %>
   </div>
 
   <div class="form-group">

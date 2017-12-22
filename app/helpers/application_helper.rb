@@ -2,9 +2,9 @@ module ApplicationHelper
     # title tag option1
   def title_tag(title, site_name)
     if title.present? 
-      content_tag :title {title + " | " + site_name}
+      content_tag :title, "#{title} | #{site_name}"
     else
-      content_tag :title {site_name}
+      content_tag :title, "#{site_name}"
     end  
   end
   ##title tag option2
@@ -49,9 +49,3 @@ module ApplicationHelper
   end
 
 end
-
-# <form action="/file-upload" class="dropzone">
-#   <div class="fallback">
-#     <input name="file" type="file" multiple />
-#   </div>
-# </form>

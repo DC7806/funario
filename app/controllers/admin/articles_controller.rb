@@ -23,6 +23,7 @@ class Admin::ArticlesController < AdminController
       redirect_to admin_articles_path
       flash[:notice] = 'New Article Created'
     else
+      flash[:alert] = "Somthing Went Wrong: "
       render :new
     end
   end
@@ -36,9 +37,7 @@ class Admin::ArticlesController < AdminController
       redirect_to admin_articles_path, notice: "Article Updated"
       # flash[:notice] = 'Article Updated'
     else
-      # flash[:notice] = 'sth went wrong'
-      # flash[:alert]
-      flash[:alert] = "Somthing went wrong: "
+      flash[:alert] = "Somthing Went Wrong: "
       render :edit
     end
   end

@@ -2,19 +2,20 @@ class Admin::AuthorsController < AdminController
   before_action :find_author, only: [:edit, :update, :destroy]
 
   def index
-    @authors = Author.all.order(created_at: :desc)
+    @admin_authors = Admin::Author.all.order(created_at: :desc)
   end
 
   def new
-    @author = Admin::Author.new
+    @admin_author = Admin::Author.new
   end
 
   def create
-    @author = Admin::Author.new(author_params)
-    if @author.save
+    @admin_author = Admin::Author.new(author_params)
+    if @admin_author.save
       redirect_to admin_authors_path
-      flash[:notice] = 'New Author Created'
+      flash[:notice] = "New Author Created"
     else
+      flash[:alert] = "Something Went Wrong: "
       render :new
     end
   end
@@ -24,18 +25,19 @@ class Admin::AuthorsController < AdminController
   end
 
   def update
-     if @author.update(author_params)
+     if @admin_author.update(author_params)
       redirect_to admin_authors_path
-      flash[:notice] = 'Author Updated'
+      flash[:notice] = "Author Updated"
     else
+      flash[:alert] = "Something Went Wrong: "
       render :edit
     end
   end
 
   def destroy
-    @author.destroy if @author
+    @admin_author.destroy if @admin_author
     redirect_to admin_authors_path
-    flash[:notice] = 'Article Deleted'
+    flash[:notice] = "Article Deleted"
   end
 
 
@@ -44,6 +46,6 @@ class Admin::AuthorsController < AdminController
     params.require(:admin_author).permit(:name, :nickname, :summary)
   end
   def find_author
-    @author = Admin::Author.find_by(id: params[:id])
+    @admin_author = Admin::Author.find_by(id: params[:id])
   end
 end

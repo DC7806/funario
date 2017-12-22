@@ -6,17 +6,18 @@ class Admin::SystemsController < AdminController
   end
   
   def update
-    if @system.update(system_params)
+    if @admin_system.update(system_params)
       redirect_to edit_admin_system_path(@system)
-      flash[:notice] = 'System Updated'
+      flash[:notice] = "System Updated"
     else
+      flash[:alert] = "Something Went Wrong: "
       render :edit
     end
   end
 
   private
   def find_system
-    @system = Admin::System.find(1)
+    @admin_system = Admin::System.find(1)
   end
   def system_params
     params.require(:admin_system).permit(:site_name, :logo, :gtm_id, :ga_id, :fb_pixel,:facebook_id, :css_version)
