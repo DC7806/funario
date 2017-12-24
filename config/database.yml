@@ -87,7 +87,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: funario_production
-  username: funario
-  password: <%= ENV['FUNARIO_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: funario
+  # username: funario
+  # password: <%= ENV['FUNARIO_DATABASE_PASSWORD'] %>

@@ -33,7 +33,7 @@ class Admin::SlidersController < AdminController
 
   def destroy
     @admin_slider.destroy if @admin_slider
-    redirect_to admin_root_path
+    redirect_to admin_sliders_path
     flash[:notice] = 'Slider Deleted'
   end
 
