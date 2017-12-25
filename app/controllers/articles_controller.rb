@@ -11,13 +11,15 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all.order(created_at: :desc)
     end
-    @title = Metum.where(page_name: :articles)[0].title
-    @seo = {description: Metum.where(page_name: :articles)[0].meta_description}
+    seo = Metum.where(page_name: :articles)[0]
+    @title = seo.title
+    @seo = {description: seo.meta_description}
     @og = {
             type:             "website",
+            title:            seo.title,
             url:              request.url,
-            description:      Metum.where(page_name: :articles)[0].meta_description,
-            image:            Metum.where(page_name: :articles)[0].og_image.url
+            description:      seo.meta_description,
+            image:            root_url + seo.og_image.url
           }
     @pins = Pin.first
   end
@@ -29,10 +31,11 @@ class ArticlesController < ApplicationController
             keyword:          @article.title
             }
     @og = {
+            title:            @article.title,
             type:             "article",
             url:              request.url,
             description:      @article.meta_description,
-            image:            @article.image.url
+            image:            root_url + @article.image.url
             }
     @carousels = @article.carousels
     # @pin = Pin.first
