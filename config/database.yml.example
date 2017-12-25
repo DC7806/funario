@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: funario_development
+  pool: 5
+  username: dchuang
+  password: 
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: funario_test
+  pool: 5
+  username: dchuang
+  password: 
+
+production:
+  adapter: postgresql
+  database: funario
+  # username: funario
+  # password: <%= ENV['FUNARIO_DATABASE_PASSWORD'] %>
