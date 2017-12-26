@@ -1,5 +1,6 @@
 <div id="disqus_thread"></div>
 <script>
+  document.addEventListener("DOMContentLoaded", function() {    
     var disqus_config = function () {
     this.page.url = '<%= request.url %>';  
     this.page.identifier = '<%= @article.id %>';
@@ -12,4 +13,5 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+  });
 </script>

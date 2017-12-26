@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
   def index
-    seo = Metum.where(page_name: :home)[0]
-    @title = seo.title
-    @seo = {description: seo.meta_description}
+    @title = Metum.find_page("home").title
+    @seo = {description: Metum.find_page("home").meta_description}
     @og = {
-            title:            seo.title,
+            title:            Metum.find_page("home").title,
             type:             "website",
             url:              request.url,
-            description:      seo.meta_description,
-            image:            root_url + seo.og_image.url
+            description:      Metum.find_page("home").meta_description,
+            image:            root_url + Metum.find_page("home").og_image.url
           }
     @sliders = Slider.order(:sort).all
   end

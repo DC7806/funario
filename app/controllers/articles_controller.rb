@@ -7,19 +7,18 @@ class ArticlesController < ApplicationController
       @articles = Article.tagged_with(params[:tag]) 
     elsif params[:month]
       ## by_month -- class method ##
-      @articles = Article.by_month(params[:month])
+      @articles = by_month(params[:month])
     else
       @articles = Article.all.order(created_at: :desc)
     end
-    seo = Metum.where(page_name: :articles)[0]
-    @title = seo.title
-    @seo = {description: seo.meta_description}
+    @title = Metum.find_page("articles").title
+    @seo = {description: Metum.find_page("articles").meta_description}
     @og = {
             type:             "website",
-            title:            seo.title,
+            title:            Metum.find_page("articles").title,
             url:              request.url,
-            description:      seo.meta_description,
-            image:            root_url + seo.og_image.url
+            description:      Metum.find_page("articles").meta_description,
+            image:            root_url + Metum.find_page("articles").og_image.url
           }
     @pins = Pin.first
   end

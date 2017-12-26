@@ -1,15 +1,14 @@
 class AuthorsController < ApplicationController
   def index
     @authors = Author.all.order(created_at: :desc)
-    seo = Metum.where(page_name: :authors)[0]
-    @title = seo.title
-    @seo = {description: seo.meta_description}
+    @title = Metum.find_page("authors").title
+    @seo = {description: Metum.find_page("authors").meta_description}
     @og = {
-            title:            seo.title,
+            title:            Metum.find_page("authors").title,
             type:             "website",
             url:              request.url,
-            description:      seo.meta_description,
-            image:            root_url + seo.og_image.url
+            description:      Metum.find_page("authors").meta_description,
+            image:            root_url + Metum.find_page("authors").og_image.url
           }
   end
 end

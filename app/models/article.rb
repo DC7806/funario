@@ -6,7 +6,6 @@ class Article < ApplicationRecord
   
   #carrierwave uploader
   mount_uploader :image, ImageUploader
-  # mount_uploaders :slide_images, SlideImagesUploader
 
   #tagging
   acts_as_taggable_on :tags
@@ -24,5 +23,6 @@ class Article < ApplicationRecord
     Article.where('extract(month from created_at) = ?', month)
   end
   # or use scope
-  # scope :by_month, lambda { |month| {:conditions => ["MONTH(created_at) = ?", month]}}
+  # scope :by_month, -> { |month| {:conditions => ["MONTH(created_at) = ?", month]}}
+  
 end
