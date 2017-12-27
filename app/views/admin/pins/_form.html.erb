@@ -1,5 +1,5 @@
 <%= form_for pin do |f| %>
-  <div class="form-group" style="margin-top:20px">
+  <div class="form-group">
     <%= f.label :all_results, "All" %>
     <%= f.file_field :all_results, class: "form-control dropify", "data-default-file": @admin_pin.all_results %>
   </div>
@@ -11,7 +11,7 @@
     </div>
     <% end %>
   </div>  
-  <%= f.submit 'confirm', class: "btn btn-primary form-control", style: "margin: 20px 0"%>
+  <%= f.submit 'confirm', class: "btn btn-primary form-control my-xs-20" %>
 <% end %>
 
 <%= render 'admin/share/dropify' %>

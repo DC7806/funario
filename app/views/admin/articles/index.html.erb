@@ -1,50 +1,14 @@
-<style type="text/css">
-  .add-new{
-    margin: 20px 0;
-  }
-  table img{
-    width: 100%;
-  }
-  tbody > tr:hover {
-    background: #e7e7e7
-  }
-  td {
-    vertical-align: middle!important
-  }
-  tbody td > a:nth-child(2){
-    margin: 3px 0;
-  }
-  @media only screen and (max-width: 767px){
-    .add-new{
-      width: 100%;
-    }
-    tbody > tr {
-      display: block;
-      background: #e7e7e7;
-      border: 1px solid #e7e7e7;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
-    table tbody td {
-      display: block!important
-    }
-    .table > tbody > tr > td{
-      border-top: none;
-      text-align: center;
-    }
-  }
-</style>
-
 <h1>Article List</h1>
 
 <%= render 'search' %>
 
+<!-- pick one of two options -->
 <%= render 'date_filter' %>
 <%= datepicker %>
 
-<%= link_to "Add Article", new_admin_article_path, class: "btn btn-default add-new"%>
+<%= link_to "Add Article", new_admin_article_path, class: "btn btn-default btn-add-new my-xs-20"%>
 
-<table class="table">
+<table class="table xs-transform">
   <thead class="hidden-xs">
     <tr>
       <td class="col-sm-2 col-md-1">Date</td>
@@ -58,16 +22,24 @@
     <% @admin_articles.each do |article|%>
     <tr>
       <td class="col-sm-2 col-md-1"><%= article.created_at.to_date %></td>
-      <td class="col-sm-3 col-md-2"><%= image_tag article.image%></td>
+      <td class="col-sm-3 col-md-2"><%= image_tag article.image, class: "wt-100"%></td>
       <td class="col-sm-5 col-md-4"><%= article.title %></td>
       <td class="hidden-sm col-md-3"><%= article.description %></td>
       <td class="col-sm-1"><%= article.author %></td>
-      <td class="col-sm-1 text-center"><%= link_to edit_admin_article_path(article), class: "btn btn-primary" do %><i class="fa fa-bolt fa-fw"></i><% end %>
-      <%= link_to article_path(article.permalink), target: "_blank", class: "btn btn-info" do %><i class="fa fa-child fa-fw"></i><% end %>  
-      <%= link_to admin_article_path(article), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do%><i class="fa fa-bomb fa-fw"></i><% end %>
+      <td class="col-sm-1 text-center">
+        <%= link_to edit_admin_article_path(article), class: "btn btn-primary" do %>
+          <i class="fa fa-bolt fa-fw"></i>
+        <% end %>
+        <%= link_to article_path(article.permalink), target: "_blank", class: "btn btn-info", style: "margin: 3px 0" do %>
+          <i class="fa fa-child fa-fw"></i>
+        <% end %>  
+        <%= link_to admin_article_path(article), method: "delete", data: { confirm: "Sure?" }, class: "btn btn-danger" do%>
+          <i class="fa fa-bomb fa-fw"></i>
+        <% end %>
       </td>
     </tr>
     <%end%>
   </tbody>
 </table>
+
 <%= paginate @admin_articles, pagination_class: "pagination-centered" %>

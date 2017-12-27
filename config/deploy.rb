@@ -41,7 +41,7 @@ set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/images}
 
 namespace :deploy do
-
+  # create sitemap after deploy is done
   desc 'Generate sitemap'
   task :sitemap do
     on roles(:app) do

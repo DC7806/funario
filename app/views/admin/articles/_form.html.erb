@@ -1,5 +1,5 @@
 <%= form_for article do |f| %>
-  <ul class="nav nav-tabs" role="tablist" style="margin-top: 20px; margin-bottom: 20px">
+  <ul class="nav nav-tabs my-xs-20" role="tablist">
     <li class="active"><a role="tab" href="#basic" data-toggle="tab">Basics</a></li>
     <li ><a role="tab" href="#carousel" data-toggle="tab">Carousel</a></li>
     <li ><a role="tab" href="#content" data-toggle="tab">Content</a></li>
@@ -10,7 +10,7 @@
     <div role="tabpanel" class="tab-pane active" id="basic">
       <div class="form-group">
         <%= f.label :author, "Author" %>
-        <%= f.select :author, options_for_select(Author.pluck(:name)+ ["other"]), { include_blank: " - SELECT - " }, {class: "form-control"} %>
+        <%= f.select :author, options_for_select(Author.pluck(:name)+ ["other"]), {include_blank: " - SELECT - "}, class: "form-control" %>
         <%= f.text_field :custom_author, class: "form-control invisible" %>
       </div>
       <div class="form-group">
@@ -39,11 +39,11 @@
         <table class="table">
           <tbody class="list-group sortable ">
             <% @admin_carousels.each_with_sortable_id do |s, sortable_id| %>
-            <tr id="<%= sortable_id %>" class="" style=" padding-bottom: 15px; border: 1px solid #ddd">
-              <td class="col-xs-10" >
-                <%= image_tag s.image, style: "width:100%" %>
+            <tr id="<%= sortable_id %>" class="list-group-item pb-xs-15" style="border: 1px solid #ddd">
+              <td class="col-xs-10">
+                <%= image_tag s.image, class: "wt-100" %>
               </td>
-              <td class="col-xs-2 text-center" style="vertical-align: middle!important;">
+              <td class="col-xs-2 text-center">
                 <%= link_to s, method: :delete, class: "btn btn-danger" do %><i class="fa fa-bomb fa-fw"></i><% end %>
               </td>
             </tr>
@@ -64,7 +64,7 @@
     <div role="tabpanel" class="tab-pane fade" id="content">
       <div>
         <%= f.label :content, "Content" %>
-        <%= f.cktext_area :content , class: "form-control", style: "min-height: 100px"%>
+        <%= f.cktext_area :content , class: "form-control text-area" %>
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="seo">
@@ -73,15 +73,15 @@
         <%= f.text_field :permalink, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :meta_description, "Meta Description" %>
-        <%= f.text_area :meta_description, class: "form-control", style: "min-height:100px" %>
+        <%= f.label :meta_description, "Meta Description text-area" %>
+        <%= f.text_area :meta_description, class: "form-control text-area" %>
       </div>
     </div>
   </div>
   <!-- Form Submit--> 
-  <div style="margin:20px 0">
+  <div class="my-xs-20">
     <%= f.submit 'confirm', class: "btn btn-primary form-control"%>
-    <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control", style: "margin-top: 20px" %> 
+    <%= link_to "cancel", admin_articles_path, class: "btn btn-default form-control mt-xs-20" %> 
   </div>
 
 <% end %>

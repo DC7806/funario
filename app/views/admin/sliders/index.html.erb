@@ -1,30 +1,10 @@
-<style type="text/css">
-  .add-new{
-    margin: 20px 0;
-  }
-  tbody > tr:hover {
-    background: #e7e7e7
-  }
-  td {
-    vertical-align: middle!important;
-    border-bottom: 1px solid #ddd;
-  }
-  table img{
-    width: 100%;
-  }
-  @media only screen and (max-width: 767px){
-    .add-new{
-      width: 100%;
-    }
-  }
-</style>
 <h1>Sliders List</h1>
-<%= link_to "Add Sliders", new_admin_slider_path, class: "btn btn-default add-new" %>
+<%= link_to "Add Sliders", new_admin_slider_path, class: "btn btn-default btn-add-new my-xs-20" %>
 <table class="table">
   <tbody class="list-group sortable">
     <% @admin_sliders.each_with_sortable_id do |slider, sortable_id|%>
         <tr id="<%= sortable_id %>" class="list-group-item">
-          <td class="col-sm-3 col-md-2"><%= image_tag slider.image %></td>
+          <td class="col-sm-3 col-md-2"><%= image_tag slider.image, class: "wt-100" %></td>
           <td class="col-sm-4 hidden-xs"><%= slider.title %></td>
           <td class="col-sm-4 hidden-xs"><%= slider.url %></td>
           <td class="col-sm-1">

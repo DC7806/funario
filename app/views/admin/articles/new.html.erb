@@ -1,5 +1,4 @@
+<%= error_msg @admin_article %>
 <h1>Add Article</h1>
-<%= link_to "Back to List", admin_articles_path, class: "btn btn-default" %>
+<%= link_to "Back to List", admin_articles_path, class: "btn btn-default btn-cancel" %>
 <%= render "form", article: @admin_article %>
-
-<!-- how to insert html class??? -->

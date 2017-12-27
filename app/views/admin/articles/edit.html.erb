@@ -1,7 +1,6 @@
 <%= error_msg @admin_article %>
 <h1>Edit Article</h1>
-<%= link_to "Back to List", admin_articles_path, class: "btn btn-default" %>
-<%= render "form", article: @admin_article, html:{class: "test"} %>      
+<%= link_to "Back to List", admin_articles_path, class: "btn btn-default btn-cancel" %>
+<%= render "form", article: @admin_article%>      
 
-<!-- how to insert html class??? -->
-<!-- html: { class: form_class } -->
+<!-- how to insert html class? ANS: html: { class: form_class } -->

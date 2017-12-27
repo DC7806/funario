@@ -1,3 +1,4 @@
+<%= error_msg @admin_author %>
 <h1>Add Author</h1>
-<%= link_to "Back to List", admin_authors_path, class: "btn btn-default" %>
+<%= link_to "Back to List", admin_authors_path, class: "btn btn-default btn-cancel" %>
 <%= render "form", author: @admin_author %>
