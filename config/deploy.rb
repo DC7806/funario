@@ -9,7 +9,6 @@ set :repo_url, "git@github.com:DC7806/funario.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/funario"
-
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -43,6 +42,15 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 namespace :deploy do
 
+  desc 'Generate sitemap'
+  task :sitemap do
+    on roles(:app) do
+      within release_path do
+        execute :bundle, :exec, :rake, 'sitemap:create RAILS_ENV=production'
+      end
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -51,5 +59,6 @@ namespace :deploy do
   end
 
   after :publishing, 'deploy:restart'
+  after 'deploy:restart', 'deploy:sitemap'
   after :finishing, 'deploy:cleanup'
 end

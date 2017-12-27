@@ -44,8 +44,8 @@ gem 'devise'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 # search
 gem 'pg_search'
-#sitemap
-gem 'sitemap_generator'
+# schedule automation
+gem 'whenever', require: false
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 gem 'bootstrap-datepicker-rails'
@@ -58,6 +58,8 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :production do
   gem 'pg', '~> 0.18'
+  # sitemap
+  gem 'sitemap_generator', require: true 
 end
 
 group :development, :test do

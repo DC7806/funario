@@ -29,13 +29,15 @@ install_plugin Capistrano::SCM::Git
 require "capistrano/rbenv"
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.4.3'
-
-
+# sitemap_generator instruction
+set :sitemap_roles, :web
 
 # require "capistrano/rvm"
 # require "capistrano/chruby"
 require "capistrano/bundler"
 require "capistrano/rails"
+require "whenever/capistrano"
+require "capistrano/sitemap_generator"
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
