@@ -3,7 +3,7 @@ class Admin::MetaController < AdminController
   before_action :find_metum, only: [:edit, :update]
 
   def index
-    @meta = Admin::Metum.all.order(created_at: :asc)
+    @meta = Admin::Metum.order(created_at: :asc)
   end
 
   def edit

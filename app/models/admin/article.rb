@@ -1,23 +1,28 @@
 class Admin::Article < Article
-  #validate
+  #validation
   validates_presence_of :title, :image, :description
 
   validates_presence_of :author, unless: :custom_author?
+
+  validates :permalink, uniqueness: true, format: {with: /\A\w[-|\w]*\z/}, if: :permalink?
+
   # prevent :save_author escaping from validation
   before_validation :save_author
 
   before_save :set_permalink, :set_cover_image_alt
   
-
   private
   #parameterize permalink
   def set_permalink
-    if self.permalink.blank?
-      self.permalink = title.parameterize
-    else
-      self.permalink = permalink.parameterize
-    end
+    self.permalink = id if self.permalink.blank?
   end
+  # def set_permalink
+  #   if self.permalink.blank?
+  #     self.permalink = title.parameterize
+  #   else
+  #     self.permalink = permalink.parameterize
+  #   end
+  # end
 
   # parameterize cover image alt
   def set_cover_image_alt

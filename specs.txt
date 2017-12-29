@@ -46,6 +46,7 @@ Specs
 9. static pages
 	9.1 homepage (V)
 	9.2 authors (V)
+	9.3 error pages
 
 TBD
 /////////////////////////////////////////////////
@@ -62,13 +63,10 @@ To Ask
 /////////////////////////////////////////////////
 1. input name=date_range[date_from], how does it pick up at controller by params[:date_range]?
 2. uploaded image path sanitize_regexp : config -> initilizers -> carrierwave.rb
-3. assets pipeline
-	3.1 compression
-
-4. redirect_back
-5. delete nested attributes without controller and route?
-6. deep nested content tags in helpers?
-7. application controller class methods used in child classes?
+3. redirect_back
+4. delete nested attributes without controller and route?
+5. deep nested content tags in helpers?
+6. application controller class methods used in child classes?
 
 Look Up
 /////////////////////////////////////////////////

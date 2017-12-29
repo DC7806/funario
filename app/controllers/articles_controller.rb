@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
       @articles = Article.tagged_with(params[:tag]) 
     elsif params[:month]
       ## by_month -- class method ##
-      @articles = by_month(params[:month])
+      @articles = Article.by_month(params[:month])
     else
-      @articles = Article.all.order(created_at: :desc)
+      @articles = Article.order(created_at: :desc)
     end
     @title = Metum.find_page("articles").title
     @seo = {description: Metum.find_page("articles").meta_description}
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   def show
     @title = @article.title
     @seo = {
-            description:      @article.meta_description ,
+            description:      @article.meta_description,
             keyword:          @article.title
             }
     @og = {

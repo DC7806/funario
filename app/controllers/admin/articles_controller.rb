@@ -4,11 +4,11 @@ class Admin::ArticlesController < AdminController
   def index
     if params[:query] #pg_search
       @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(3)
-    elsif params[:date_range] # input name=date_range[date_from], how does it pick up?
+    elsif params[:date_range] # input name=date_range[date_from], name=date_range[date_to]
       @search = DateRangeSearch.new(params[:date_range])
-      @admin_articles = @search.scope.order(created_at: :desc).page(params[:page]).per(3)
+      @admin_articles = @search.date_range_scope.order(created_at: :desc).page(params[:page]).per(3)
     else
-      @admin_articles = Article.all.order(created_at: :desc).page(params[:page]).per(3)
+      @admin_articles = Article.order(created_at: :desc).page(params[:page]).per(3)
     end
   end
 
@@ -21,7 +21,7 @@ class Admin::ArticlesController < AdminController
     @admin_article = Admin::Article.new(article_params)
     if @admin_article.save
       redirect_to admin_articles_path
-      flash[:notice] = 'New Article Created'
+      flash[:notice] = "New Article Created"
     else
       flash[:alert] = "Somthing Went Wrong: "
       render :new
@@ -29,7 +29,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def edit
-    @admin_carousels = @admin_article.carousels.order(:sort).all
+    @admin_carousels = @admin_article.carousels.order(:sort)
   end
 
   def update
@@ -45,7 +45,7 @@ class Admin::ArticlesController < AdminController
   def destroy
     @admin_article.destroy if @admin_article
     redirect_to admin_articles_path
-    flash[:notice] = 'Article Deleted'
+    flash[:notice] = "Article Deleted"
   end
 
   private

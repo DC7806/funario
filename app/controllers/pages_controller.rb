@@ -9,6 +9,6 @@ class PagesController < ApplicationController
             description:      Metum.find_page("home").meta_description,
             image:            root_url + Metum.find_page("home").og_image.url
           }
-    @sliders = Slider.order(:sort).all
+    @sliders = Slider.order(:sort)
   end
 end

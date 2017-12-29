@@ -20,9 +20,10 @@ class Article < ApplicationRecord
 
   #group by month
   def self.by_month(month)
-    Article.where('extract(month from created_at) = ?', month)
+    where('extract(month from created_at) = ?', month)
   end
   # or use scope
+  # scope :by_month, -> (month) {where('extract(month from created_at) = ?', month)}
+  # or
   # scope :by_month, -> { |month| {:conditions => ["MONTH(created_at) = ?", month]}}
-  
 end

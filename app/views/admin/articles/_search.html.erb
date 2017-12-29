@@ -1,4 +1,4 @@
-<%= form_tag admin_articles_path, method: "get" do %>
+<%= form_tag admin_articles_path, method: "get", class: "mt-xs-20" do %>
   <div class="input-group">
     <%= text_field_tag :query, params[:query], placeholder: "Search Here", class: "form-control"%>
     <!-- wrong: text_field_tag 'Search' -->

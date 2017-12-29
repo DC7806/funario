@@ -11,6 +11,6 @@ class CarouselsController < ApplicationController
 
   private
   def find_carousel
-    @carousel = Carousel.find(params[:id])
+    @carousel = Carousel.find_by(id: params[:id])
   end
 end

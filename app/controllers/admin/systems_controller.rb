@@ -17,7 +17,7 @@ class Admin::SystemsController < AdminController
 
   private
   def find_system
-    @admin_system = Admin::System.find(1)
+    @admin_system = Admin::System.first
   end
   def system_params
     params.require(:admin_system).permit(:site_name, :logo, :gtm_id, :ga_id, :fb_pixel,:facebook_id, :css_version)

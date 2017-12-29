@@ -2,7 +2,7 @@ class Admin::SlidersController < AdminController
   before_action :find_slide, only: [:edit, :update, :destroy]
 
   def index
-    @admin_sliders = Admin::Slider.order(:sort).all
+    @admin_sliders = Admin::Slider.order(:sort)
   end
 
   def new

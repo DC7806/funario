@@ -2,7 +2,7 @@ class Admin::AuthorsController < AdminController
   before_action :find_author, only: [:edit, :update, :destroy]
 
   def index
-    @admin_authors = Admin::Author.all.order(created_at: :desc)
+    @admin_authors = Admin::Author.order(created_at: :desc)
   end
 
   def new
