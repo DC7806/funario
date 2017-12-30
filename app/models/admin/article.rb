@@ -1,21 +1,28 @@
 class Admin::Article < Article
   #validation
-  validates_presence_of :title, :image, :description
+  validates_presence_of :title, :image, :description, :permalink
 
   validates_presence_of :author, unless: :custom_author?
 
-  validates :permalink, uniqueness: true, format: {with: /\A\w[-|\w]*\z/}, if: :permalink?
+  validates :permalink, uniqueness: true, format: {with: /\A\w[-|\w]*\z/}
+  
 
   # prevent :save_author escaping from validation
   before_validation :save_author
 
-  before_save :set_permalink, :set_cover_image_alt
+  before_save :set_cover_image_alt
   
+  ## combo not working
+  # validates :permalink, uniqueness: true, format: {with: /\A\w[-|\w]*\z/}, if: :permalink? 
+  # after_create :set_permalink
+
   private
+  # give permalink default value if blank
+  # def set_permalink
+  #   self.permalink = id if self.permalink.blank?
+  # end
+  
   #parameterize permalink
-  def set_permalink
-    self.permalink = id if self.permalink.blank?
-  end
   # def set_permalink
   #   if self.permalink.blank?
   #     self.permalink = title.parameterize
@@ -24,17 +31,14 @@ class Admin::Article < Article
   #   end
   # end
 
-  # parameterize cover image alt
+  # set image alt deault value if blank
   def set_cover_image_alt
-    self.cover_image_alt = cover_image_alt.parameterize unless (self.cover_image_alt.blank?)
+    self.cover_image_alt = title if self.cover_image_alt.blank?
   end
   # save author either from select or manual input
   def save_author
-    if self.author.blank? || self.author == "other"
-      self.author = custom_author
-    end 
+    self.author = custom_author if self.author == "other" 
   end
-  
 end
 
 ## validation :unless usage explained ##

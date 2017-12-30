@@ -28,16 +28,15 @@ class ArticlesController < ApplicationController
     @seo = {
             description:      @article.meta_description,
             keyword:          @article.title
-            }
+            }        
     @og = {
             title:            @article.title,
             type:             "article",
             url:              request.url,
             description:      @article.meta_description,
-            image:            root_url + @article.image.url
+            image:            root_url + @article.og_image?
             }
     @carousels = @article.carousels
-    # @pin = Pin.first
   end
 
   private

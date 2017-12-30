@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   
   #carrierwave uploader
   mount_uploader :image, ImageUploader
+  mount_uploader :og_image, ImageUploader
 
   #tagging
   acts_as_taggable_on :tags
@@ -26,4 +27,10 @@ class Article < ApplicationRecord
   # scope :by_month, -> (month) {where('extract(month from created_at) = ?', month)}
   # or
   # scope :by_month, -> { |month| {:conditions => ["MONTH(created_at) = ?", month]}}
+  
+  ## defined in Application Controller??
+  def og_image?
+    og_image.present? ? og_image.url : image.url
+  end
+
 end

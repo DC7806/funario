@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
     # @title = System.first.title
     @site_name = System.first.site_name
   end
-
-  ## not working here but Metum model
+  
+  ## not working here but Metum model??
   # def self.seo(page_name)
   #   where(page_name: page_name)[0]
   # end

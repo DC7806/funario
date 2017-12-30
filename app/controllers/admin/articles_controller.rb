@@ -1,5 +1,6 @@
 class Admin::ArticlesController < AdminController
   before_action :find_article, only: [:edit, :update, :destroy]
+  before_action :select_author, except: [:index, :destroy]
   
   def index
     if params[:query] #pg_search
@@ -15,6 +16,7 @@ class Admin::ArticlesController < AdminController
   def new
     @admin_article = Admin::Article.new
     @admin_carousel = @admin_article.carousels.build
+    
   end
 
   def create
@@ -52,9 +54,12 @@ class Admin::ArticlesController < AdminController
   def article_params
     params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description,
                                           :permalink, :image, :cover_image_alt, :content, :tag_list, {slide_images: []},
-                                          {carousels_attributes: [:id, :image, :_destroy]})
+                                          {carousels_attributes: [:id, :image, :_destroy]}, :og_image)
   end
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])  
+  end
+  def select_author
+    @select_author = Author.pluck(:name)+["other"]
   end
 end
