@@ -3,8 +3,7 @@ class CarouselsController < ApplicationController
 
   def destroy
     @carousel.destroy if @carousel
-    # not applicable for other models using carousels
-    redirect_back(fallback_location: edit_admin_article_path)
+    redirect_back(fallback_location: request.referrer)
     flash[:notice] = "Image Deleted"
   end
 
