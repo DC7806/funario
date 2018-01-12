@@ -35,7 +35,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def update
-    if @admin_article.update_attributes(article_params)
+    if @admin_article.update(article_params)
       redirect_to admin_articles_path, notice: "Article Updated"
       # flash[:notice] = 'Article Updated'
     else

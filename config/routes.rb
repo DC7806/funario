@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #admin
   get '/backyard/dashboard', to: 'admin#dashboard', as: :admin_root
   get '/user/pasword/edit', to: 'devise/passwords#edit'
-  namespace :admin, path: 'backyard' do
+  namespace :admin, path: Settings.admin_secret_path do
     resources :articles, :authors, :sliders, except: [:show]
     resources :meta, :pins, only: [:index, :edit, :update]
     resources :systems, only: [:edit, :update]
