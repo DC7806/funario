@@ -52,8 +52,8 @@ class Admin::ArticlesController < AdminController
 
   private
   def article_params
-    params.require(:admin_article).permit(:title, :author, :custom_author, :description, :meta_description,
-                                          :permalink, :image, :cover_image_alt, :content, :tag_list, {slide_images: []},
+    params.require(:admin_article).permit(:title, :subtitle, :author, :custom_author, :description, :meta_description,
+                                          :permalink, :image, :image_alt, :content, :tag_list, {slide_images: []},
                                           {carousels_attributes: [:id, :image, :_destroy]}, :og_image)
   end
   def find_article

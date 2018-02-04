@@ -8,7 +8,8 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
+    direction:rtl;
   }
   .scroll-pins-wrapper::-webkit-scrollbar {
     width: 0 !important }
@@ -18,9 +19,11 @@
   }  
 </style>
 
-<%= content_tag :div, class: "scroll-pins-wrapper" do %>
-  <%= link_to "All", articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{@pins.all_results.url}) center / cover" %>
-  <% Pin.first.attributes.to_a[2..13].each_with_index do |pin, index| %>
-    <%= link_to "#{pin[0].upcase}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{"/images/pin/"+pin[0].to_s+"/1/"+pin[1].to_s}) center / cover" %>
+<div class="hover">
+  <%= content_tag :div, class: "scroll-pins-wrapper" do %>
+    <%= link_to "All", articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{@pins.all_results.url}) center / cover" %>
+    <% Pin.first.attributes.to_a[2..13].each_with_index do |pin, index| %>
+      <%= link_to "#{pin[0].upcase}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{"/images/pin/"+pin[0].to_s+"/1/"+pin[1].to_s}) center / cover" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

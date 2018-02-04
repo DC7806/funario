@@ -1,13 +1,46 @@
 <div class="row">
-  <h1>articles List</h1>
+  <style type="text/css">
+    .scroll-pins-wrapper{
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+      direction:rtl;
+    }
+    .scroll-pins-wrapper::-webkit-scrollbar {
+      width: 0 !important }
+    
+    @media screen and (min-width: 768px){
+    .text-vertical{
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      float: right;
+      max-height: 560px;
+      margin: 20px 15px;
+    }
+    .text-vertical > a {
+      color: #000;
+    }
+    .text-vertical h3, .text-vertical h4 {
+      margin: 0 15px;
+      letter-spacing: .2rem
+    }
+    .text-vertical p {
+      font-size: 2rem;
+    }
+  }
+  </style>
   <%= render 'layouts/pins' %>  
 
   <% @articles.each do |article|%>
-  <div class="col-sm-4">
+  <div class="text-vertical">
+    <%= link_to article_path(article.permalink) do %>
     <h3><%= article.title %></h3>
-    <p><%= article.content.html_safe %></p>
-    <p><%= article.permalink %></p>
-    <%= link_to "enter", article_path(article.permalink), class: "btn btn-primary" %>
+    <h4><%= article.subtitle %></h4>
+    <p><%= article.description %></p>
+    <% end %>
   </div>
   <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230164627) do
+ActiveRecord::Schema.define(version: 20180204140625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,13 @@ ActiveRecord::Schema.define(version: 20171230164627) do
     t.string "description"
     t.string "image"
     t.text "content"
-    t.string "cover_image_alt"
+    t.string "image_alt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "custom_author"
     t.json "slide_images"
     t.string "og_image"
+    t.string "subtitle"
   end
 
   create_table "authors", force: :cascade do |t|

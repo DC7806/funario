@@ -10,7 +10,7 @@ class Admin::Article < Article
   # prevent :save_author escaping from validation
   before_validation :save_author
 
-  before_save :set_cover_image_alt
+  before_save :set_image_alt
   
   ## combo not working
   # validates :permalink, uniqueness: true, format: {with: /\A\w[-|\w]*\z/}, if: :permalink? 
@@ -32,8 +32,8 @@ class Admin::Article < Article
   # end
 
   # set image alt deault value if blank
-  def set_cover_image_alt
-    self.cover_image_alt = title if self.cover_image_alt.blank?
+  def set_image_alt
+    self.image_alt = title if self.image_alt.blank?
   end
   # save author either from select or manual input
   def save_author
