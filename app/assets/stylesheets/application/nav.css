@@ -2,11 +2,12 @@
   height: 50px;
   width: 100%;
   position: absolute;
+  color: #000;
 }
 
-.nav > .nav-header {
+/* .nav > .nav-header {
   display: inline;
-}
+} */
 
 .nav-title {
   display: inline-block;
@@ -14,6 +15,14 @@
   color: #fff;
   padding: 10px;
   margin: 0;
+}
+
+.nav-title a {
+  color: #000;
+}
+
+.nav-title a:hover {
+  text-decoration: none;
 }
 
 .nav > .nav-links {
@@ -61,7 +70,7 @@
   display: block;
   width: 25px;
   height: 10px;
-  border-top: 2px solid #eee;
+  border-top: 2px solid #000;
 }
 
 .nav > #nav-check:not(:checked) + .nav-links {
@@ -73,4 +82,20 @@
 }
 .nav > .nav-links ,.nav-backround-color{
   background-color: #000;
+}
+
+.home.nav .nav-title a {
+  color: #fff;
+}
+
+.home.nav > .nav-btn > label > span {
+  border-top: 2px solid #fff;
+}
+
+.toggle-color{
+  color: #fff!important;
+}
+
+.toggle-border{
+  border-top: 2px solid #fff!important;
 }

@@ -48,4 +48,12 @@ module ApplicationHelper
     render 'analytics/fb' if @system.fb_pixel.present?
   end
 
+  def home_nav
+    if controller_name == 'pages' && action_name == 'index'
+      render 'pages/home_nav'
+    else
+      render 'layouts/nav'
+    end
+  end
+
 end

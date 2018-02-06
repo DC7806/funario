@@ -14,7 +14,8 @@
   <meta property="og:app_id"         content="<%= @system.facebook_id %>" />
   <%= og_tag @og %>
   <!-- css -->
-  <%= stylesheet_link_tag "application"%>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- js -->
   <%= csrf_meta_tags %>
@@ -22,7 +23,7 @@
 </head>
 <body>
   <%= home_slider_tag %>
-  <%= render 'pages/home_nav' %>
+  <%= home_nav %>
   <div class="container">
     <%= yield %>
   </div>
