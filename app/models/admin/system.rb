@@ -1,3 +1,3 @@
 class Admin::System < System
-  validates_presence_of :site_name
+  validates :site_name, presence: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204140625) do
+ActiveRecord::Schema.define(version: 20180207104350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,11 +127,10 @@ ActiveRecord::Schema.define(version: 20180204140625) do
     t.string "logo"
     t.string "gtm_id"
     t.string "ga_id"
-    t.string "facebook_id"
+    t.string "pinterest_id"
     t.string "css_version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fb_pixel"
     t.string "site_name"
   end
 

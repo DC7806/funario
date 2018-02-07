@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def title
-    # @title = System.first.title
     @site_name = System.first.site_name
   end
   

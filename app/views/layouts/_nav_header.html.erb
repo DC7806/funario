@@ -1,5 +1,7 @@
 <div class="nav-header">
-      <h1 class="nav-title"><%= link_to "Funario", root_path %></h1>
+      <%= link_to root_path do %>
+        <h1 class="nav-title"><%= @site_name %></h1>
+      <% end %>
   </div>
   <div class="nav-btn">
     <label for="nav-check">
@@ -12,5 +14,7 @@
   <div class="nav-links">
     <%= link_to "文章", articles_path %>
     <%= link_to "作者", authors_path %>
-    <a href="#">Pinterest</a>
+    <%= link_to "https://www.pinterest.com/#{@site_name}" do %>
+      <i class="fa fa-pinterest" style="font-size: 30px"></i>
+    <% end %>
   </div>
