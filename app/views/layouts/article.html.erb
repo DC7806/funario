@@ -17,13 +17,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- js -->
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
   <%= carousels_style_tag %>  
 </head>
 <body>
+  <%= nav %>
   <%= carousels_tag %>
-  <div class="container">
-    <%= yield %>
-  </div>
+  <%= yield %>
   <%= analytics_gtm_tag %>
   <%= analytics_ga_tag %>
 </body>

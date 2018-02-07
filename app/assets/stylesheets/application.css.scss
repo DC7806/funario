@@ -1,7 +1,12 @@
 /*
 *= require_self
 *= require_tree ./application
+*= require_tree ./shared
 */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+p {
+	text-align: justify;
+}

@@ -1,8 +1,13 @@
 class Pin < ApplicationRecord
+  # validation
+  validates :month, presence: true
+
   #carrierwave uploader
-  [:all_results, :jan, :feb, :mar, :apr, :may, :jun, :jul, :aug, :sep, :oct, :nov, :dec ].each do |month|
-    mount_uploader month, ImageUploader
-  end
+  mount_uploader :image, ImageUploader
+  
+  # [:all_results, :jan, :feb, :mar, :apr, :may, :jun, :jul, :aug, :sep, :oct, :nov, :dec ].each do |month|
+  #   mount_uploader month, ImageUploader
+  # end
   # mount_uploader :all_results, ImageUploader
   # mount_uploader :jan, ImageUploader
   # mount_uploader :feb, ImageUploader

@@ -1,0 +1,20 @@
+<div class="form-group mt-xs-20">
+  <%= form_for @admin_pins.first do |f| %>
+  <%= f.text_field :month, class: "form-control mb-xs-5", placeholder: "所有文章名稱" %>
+  <%= f.file_field :image, class: "form-control dropify", "data-default-file": @admin_pins.first.image %>
+  <%= f.submit 'confirm', class: "btn btn-primary form-control my-xs-10" %>
+  <% end %>
+</div>
+<div class="row">
+  <% @admin_pins.last(12).each do |pin| %>
+  <%= form_for pin do |f|%>
+  <div class="form-group col-xs-12 col-sm-4">
+    <%= f.text_field :month, class: "form-control mb-xs-5", placeholder: "月份名稱" %>
+    <%= f.file_field :image, class: "form-control dropify", "data-default-file": pin.image %>
+    <%= f.submit 'confirm', class: "btn btn-primary form-control my-xs-10" %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+
+<%= render 'admin/share/dropify' %>

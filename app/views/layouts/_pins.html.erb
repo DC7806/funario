@@ -1,9 +1,16 @@
 <!-- alternatives to iteration written in inline style??? -->
+<%#= content_tag :div, class: "scroll-wrapper pins-wrapper" do %>
+  <%#= link_to "All", articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{@pins.all_results.url}) center / cover" %>
+  <%# Pin.first.attributes.to_a[2..13].each_with_index do |pin, index| %>
+    <!-- insert parameters to articles path -->
+    <%#= link_to "#{pin[0].upcase}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{"/images/pin/"+pin[0].to_s+"/1/"+pin[1].to_s}) center / cover" %>
+  <%# end %>
+<%# end %>
 
 <%= content_tag :div, class: "scroll-wrapper pins-wrapper" do %>
-  <%= link_to "All", articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{@pins.all_results.url}) center / cover" %>
-  <% Pin.first.attributes.to_a[2..13].each_with_index do |pin, index| %>
+  <%= link_to Pin.first.month, articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{Pin.first.image.url}) center / cover" %>
+  <% Pin.last(12).each_with_index do |pin, index| %>
     <!-- insert parameters to articles path -->
-    <%= link_to "#{pin[0].upcase}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{"/images/pin/"+pin[0].to_s+"/1/"+pin[1].to_s}) center / cover" %>
+    <%= link_to "#{pin.month}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{pin.image.url}) center / cover" %>
   <% end %>
 <% end %>

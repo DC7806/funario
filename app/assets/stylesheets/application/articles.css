@@ -32,6 +32,9 @@
 .text-vertical:last-child {
   border-bottom: 4px solid #777;
 }
+.article-wrapper {
+  margin-top: 60px;
+}
 @media screen and (max-width: 767px){
   .text-vertical p {
     white-space: nowrap;
@@ -40,7 +43,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
-    margin: 0;
+
   }
   .text-vertical p::-webkit-scrollbar {
     width: 0 !important }

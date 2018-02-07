@@ -10,13 +10,8 @@
       <%= f.file_field pin.first.to_sym, class: "form-control dropify", "data-default-file": "#{"/images/pin/"+pin[0].to_s+"/1/"+pin[1].to_s}" %>
     </div>
     <% end %>
-  </div>  
+  </div>
   <%= f.submit 'confirm', class: "btn btn-primary form-control my-xs-20" %>
 <% end %>
 
 <%= render 'admin/share/dropify' %>
-
-<!-- <div class="form-group col-xs-12 col-sm-4">
-    <%#= f.label :jan, "Jan" %>
-    <%#= f.file_field :jan, class: "form-control dropify", "data-default-file": @admin_pin.jan %>
-</div> -->

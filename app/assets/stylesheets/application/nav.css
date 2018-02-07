@@ -88,7 +88,7 @@
   height: calc(100vh - 50px);
   overflow-y: auto;
 }
-.nav > .nav-links ,.nav-backround-color{
+.nav > .nav-links , .nav-backround-color {
   background-color: #000;
 }
 
@@ -106,4 +106,8 @@
 
 .toggle-border{
   border-top: 2px solid #fff!important;
+}
+
+.toggle-display{
+  display: none;
 }

@@ -20,6 +20,6 @@ class Admin::SystemsController < AdminController
     @admin_system = Admin::System.first
   end
   def system_params
-    params.require(:admin_system).permit(:site_name, :logo, :gtm_id, :ga_id, :fb_pixel,:facebook_id, :css_version)
+    params.require(:admin_system).permit(:site_name, :logo, :gtm_id, :ga_id, :pinterest_id, :css_version)
   end
 end

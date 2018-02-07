@@ -4,19 +4,18 @@ class Admin::ArticlesController < AdminController
   
   def index
     if params[:query] #pg_search
-      @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(3)
+      @admin_articles = Article.search(params[:query]).order(created_at: :desc).page(params[:page]).per(10)
     elsif params[:date_range] # input name=date_range[date_from], name=date_range[date_to]
       @search = DateRangeSearch.new(params[:date_range])
-      @admin_articles = @search.date_range_scope.order(created_at: :desc).page(params[:page]).per(3)
+      @admin_articles = @search.date_range_scope.order(created_at: :desc).page(params[:page]).per(10)
     else
-      @admin_articles = Article.order(created_at: :desc).page(params[:page]).per(3)
+      @admin_articles = Article.order(created_at: :desc).page(params[:page]).per(10)
     end
   end
 
   def new
     @admin_article = Admin::Article.new
     @admin_carousel = @admin_article.carousels.build
-    
   end
 
   def create

@@ -14,7 +14,7 @@
   <div class="nav-links">
     <%= link_to "文章", articles_path %>
     <%= link_to "作者", authors_path %>
-    <%= link_to "https://www.pinterest.com/#{@site_name}" do %>
+    <%= link_to "https://www.pinterest.com/#{System.first.pinterest_id}", target: "_blank" do %>
       <i class="fa fa-pinterest" style="font-size: 30px"></i>
     <% end %>
   </div>
