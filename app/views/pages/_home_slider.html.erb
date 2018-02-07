@@ -22,8 +22,10 @@
   <% @sliders.each_with_index do |slider, index| %>
   <div class="slider slide<%= index+1 %>" style="background-image: url('<%= slider.image.url %>')">
     <div>
+      <%= link_to slider.url do%>
       <h2><%= slider.title %></h2>
-      <a href="<%= slider.url %>" class="button">ENTER</a>
+      <span class="button"><%= slider.cta %></span>
+      <% end %>
     </div>
   </div>
   <% end %>

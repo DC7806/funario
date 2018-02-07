@@ -1,0 +1,22 @@
+#authors {
+	background-color: #000;
+	height: 100vh;
+	color: #b5b5b5;
+}
+.authors-wrapper {
+	margin-top: 100px
+}
+.authors-wrapper > div:hover {
+	color: #fff;
+}
+.authors-wrapper > div:not(:last-child) {
+	margin-bottom: 40px
+}
+.authors-wrapper h2 {
+	border-bottom: 2px solid #b5b5b5;
+}
+@media screen and (max-width: 767px){
+	#authors {
+	color: #fff;
+	}
+}

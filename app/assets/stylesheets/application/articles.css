@@ -10,7 +10,7 @@
   width: 0 !important }
 .pins-wrapper {
   padding: 0 20px 20px 20px;
-  margin-top: 50px;
+  margin-top: 60px;
 }  
 .pins-wrapper > a {
   min-width: 160px;
@@ -48,6 +48,9 @@
 @media screen and (min-width: 768px){
   .scroll-wrapper {
     direction: rtl;
+  }
+  .articles-wrapper {
+    margin-top: 15px
   }
   .pins-wrapper {
     direction:rtl;

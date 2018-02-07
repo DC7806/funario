@@ -42,6 +42,6 @@ class Admin::SlidersController < AdminController
     @admin_slider = Admin::Slider.find_by(id: params[:id])
   end
   def slide_params
-    params.require(:admin_slider).permit(:image, :title, :url, :slider_index, :sort)
+    params.require(:admin_slider).permit(:image, :title, :cta, :url, :slider_index, :sort)
   end
 end

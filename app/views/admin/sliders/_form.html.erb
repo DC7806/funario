@@ -10,6 +10,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :cta, "按鈕文字" %>
+    <%= f.text_field :cta, class: "form-control", placeholder: "預設為ENTER" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :image, "Slide Image" %>
     <%= f.file_field :image, class: "dropify", "data-default-file": @admin_slider.image %>
   </div>

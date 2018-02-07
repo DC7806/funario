@@ -11,7 +11,6 @@
   <%= meta_description_tag @seo %>
   <!-- og -->
   <meta property="og:site_name"      content="<%= @site_name %>" />
-  <meta property="og:app_id"         content="<%= @system.facebook_id %>" />
   <%= og_tag @og %>
   <!-- css -->
   <%= stylesheet_link_tag "application"%>
@@ -27,6 +26,5 @@
   </div>
   <%= analytics_gtm_tag %>
   <%= analytics_ga_tag %>
-  <%= analytics_fb_tag %>
 </body>
 </html>

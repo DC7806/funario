@@ -1,17 +1,19 @@
-<div class="row">
-  <%= render 'layouts/pins' %>  
-  <div class="scroll-wrapper">
-    <% @articles.each do |article|%>
-    <div class="text-vertical">
-      <%= link_to article_path(article.permalink) do %>
-      <div>
-        <h2><%= article.title %></h2>
-        <h4><%= article.subtitle %></h4>
+<div class="container">
+  <div class="row">
+    <%= render 'layouts/pins' %>  
+    <div class="articles-wrapper scroll-wrapper">
+      <% @articles.each do |article|%>
+      <div class="text-vertical">
+        <%= link_to article_path(article.permalink) do %>
+        <div>
+          <h2><%= article.title %></h2>
+          <h4><%= article.subtitle %></h4>
+        </div>
+        <p><%= article.description %></p>
+        <% end %>
       </div>
-      <p><%= article.description %></p>
+      <%#= image_tag article.image, style: "width:160px; " %>
       <% end %>
     </div>
-    <%#= image_tag article.image, style: "width:160px; " %>
-    <% end %>
   </div>
 </div>

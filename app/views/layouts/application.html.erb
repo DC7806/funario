@@ -14,18 +14,16 @@
   <%= og_tag @og %>
   <!-- css -->
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- js -->
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
   <%= home_slider_style_tag %>  
 </head>
 <body>
   <%= home_slider_tag %>
-  <%= home_nav %>
-  <div class="container">
-    <%= yield %>
-  </div>
+  <%= nav %>
+  <%= yield %>
   <%= analytics_gtm_tag %>
   <%= analytics_ga_tag %>
 </body>
