@@ -37,7 +37,7 @@
       </div>
       <div class="form-group">
         <%= f.label :tag_list, "Tags (seperate by comma)" %>
-        <%= f.text_field :tag_list, input_html: {value: f.object.tag_list.to_s}, class: "form-control" %>
+        <%= f.text_field :tag_list, value: @admin_article.tag_list.join(", ").to_s, class: "form-control" %>
       </div>
     </div>
     <!-- carousel Panel-->

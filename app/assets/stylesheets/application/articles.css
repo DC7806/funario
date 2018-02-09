@@ -112,3 +112,8 @@
 .article-tagging a:hover {
   font-size: 200%
 }
+/* ckeditor img size */
+.editor img {
+  max-width: 100%!important;
+  height: auto!important;
+}

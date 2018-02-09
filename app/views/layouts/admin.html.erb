@@ -3,6 +3,7 @@
   <head>
     <title>Backyard | Funario</title>
     <meta name="viewport"              content="width=device-width, initial-scale=1" />
+    <link rel="icon"                   href="<%= "http://www." + request.domain + System.first.logo_url(:favicon) %>" type="image/png"/>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>

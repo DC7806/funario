@@ -3,6 +3,7 @@
   width: 100%;
   position: absolute;
   color: #000;
+  z-index: 1000;
 }
 
 /* .nav > .nav-header {
