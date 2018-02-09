@@ -8,9 +8,9 @@
 <%# end %>
 
 <%= content_tag :div, class: "scroll-wrapper pins-wrapper" do %>
-  <%= link_to Pin.first.month, articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{Pin.first.image.url}) center / cover" %>
+  <%= link_to Pin.first.month, articles_path, class: "btn btn-default", style: "color:#fff;background:url(#{Pin.first.image_url(:thumb)}) center / cover" %>
   <% Pin.last(12).each_with_index do |pin, index| %>
     <!-- insert parameters to articles path -->
-    <%= link_to "#{pin.month}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{pin.image.url}) center / cover" %>
+    <%= link_to "#{pin.month}", articles_path(month: "#{index+1}"), class: "btn btn-default", style: "color:#fff;background:url(#{pin.image_url(:thumb)}) center / cover" %>
   <% end %>
 <% end %>
