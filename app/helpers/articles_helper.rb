@@ -10,10 +10,12 @@ module ArticlesHelper
   # tagging (only shows up when tags available)
   def tagging_tag(tagging)
     if tagging.tag_list.present?
-      content_tag :div, class: "article-tagging my-xs-20" do
-        tagging.tag_list.map {|t| link_to t, tag_path(t)}.inject(&:+)
-        # = tagging.tag_list.map {|t| link_to t, tag_path(t)}.join.html_safe
-        # look up "join" method
+      content_tag :div, class: "row" do
+        content_tag :div, class: "article-tagging my-xs-20" do
+          (content_tag :span, "標籤：") +
+          (tagging.tag_list.map {|t| link_to t, tag_path(t), class: "btn btn-default ml-xs-10"}.inject(&:+))
+          # look up "join" method
+        end
       end
     end
   end

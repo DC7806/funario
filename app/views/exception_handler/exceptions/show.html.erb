@@ -1,4 +1,14 @@
 <%= content_tag :div, class: "exception", data: { status: @exception.status, response: @exception.response.to_s.humanize, rails: Rails.version }, onclick: ("location.href=\"#{root_url}\";" if @exception.status == "500" && Rails.application.routes.recognize_path("/")), title: ("Return Home" if @exception.status == "500" && Rails.application.routes.recognize_path("/")) do %>
   <%#= content_tag :span, @exception.description.html_safe %>
-  <h1>sOmEtHiNg WeNt WrOng</h1>
+  <div class="container text-center" style="padding-top: 60px">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <h1 style="font-size: 4rem">oOpS</h1>
+        <h2>sOmEtHiNg WeNt WrOng</h2>
+        <%= link_to "首頁", root_path, class: "btn btn-default form-control mt-xs-30" %>
+        <%= link_to "文章", root_path, class: "btn btn-default form-control mt-xs-30" %>
+        <%= link_to "作者", root_path, class: "btn btn-default form-control mt-xs-30" %>
+      </div>
+    </div>
+  </div>
 <% end %>

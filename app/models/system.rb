@@ -1,4 +1,4 @@
 class System < ApplicationRecord
   #carrierwave uploader
-  mount_uploader :logo, ImageUploader
+  mount_uploader :logo, FaviconUploader
 end
