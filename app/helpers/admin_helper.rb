@@ -18,7 +18,7 @@ module AdminHelper
             "&times;".html_safe
           end
         end) + notice
-      end.html_safe
+      end
     end
   end
 
@@ -33,7 +33,7 @@ module AdminHelper
         end) + 
         (content_tag :span, alert) + 
         (obj.errors.full_messages.map {|msg| content_tag :span, msg, class: "label label-default", style: "margin-right:10px"}.inject(:+))
-      end.html_safe
+      end
     end
   end
   ## or...

@@ -22,31 +22,28 @@ Specs
 	5.3 sitemap (sitemap_generator gem) (V)
 	5.4 url (V)
 
-5. social share (gem)
+5. social share (removed)
 
 6. article detail page
 	6.1 commentable (disqus) (V)
-	6.2 recommendable (removed)
-	6.3 slideshow
+	6.2 slideshow
 		6.3.1 #show (V)
 		6.3.2 #home (V)
 	6.4 tagable (acts-as-taggable-on gem) (V)
 	6.5 paginatable (kaminari gem)
 		6.5.1 backend (V)
-		6.5.2 frontend
-	6.6 preview (?)
 
 7. search (pg_search gem)
 	7.1 backend search (V) 
 	7.2 date range filter (V)
 
 8. schedule (whenever gem)
-	8.1 integrate with sitemap_generator gem
+	8.1 integrate with sitemap_generator gem (V)
 
 9. static pages
 	9.1 homepage (V)
 	9.2 authors (V)
-	9.3 error pages
+	9.3 error pages (V)
 
 TBD
 /////////////////////////////////////////////////
