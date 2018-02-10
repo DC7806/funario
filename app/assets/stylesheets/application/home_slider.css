@@ -79,10 +79,10 @@
   font-size: 50px;
   color: #FFF;
   cursor: pointer;
-  opacity: 0.2;
+  opacity: 0.8;
 }
 .control label:hover {
-  opacity: 0.5;
+  opacity: 1;
 }
 .next {
   right: 1%;
