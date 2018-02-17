@@ -56,4 +56,8 @@ module ApplicationHelper
     end
   end
 
+  def favicon
+    "http://www." + request.domain + System.first.logo_url(:favicon) if System.first.logo_url(:favicon).present?
+  end
+
 end

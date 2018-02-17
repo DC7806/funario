@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+  <meta name="google-site-verification" content="WyEE0ara8lQsRIGugg181NUuikfNc4ndlihqNA8isrA" />
   <%= title_tag @title, @site_name %>
   <meta charset="utf-8">
   <meta name="robots"                content="all" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="canonical"              href="<%= request.url %>" />
-  <link rel="icon"                   href="<%= "http://www." + request.domain + System.first.logo_url(:favicon) %>" type="image/png"/>
+  <link rel="icon"                   href="<%= favicon %>" type="image/png"/>
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
   <meta name="viewport"              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <%= meta_description_tag @seo %>

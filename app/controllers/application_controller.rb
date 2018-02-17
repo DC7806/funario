@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @og = {
             type:             "website",
             url:              request.url,
+            image:            ""
             } 
   end
 

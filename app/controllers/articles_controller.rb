@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
             title:            Metum.find_page("articles").title,
             url:              request.url,
             description:      Metum.find_page("articles").meta_description,
-            image:            root_url + Metum.find_page("articles").og_image.url
+            image:            root_url + Metum.find_page("articles").og_image.url 
           }
     @pins = Pin.first
   end
