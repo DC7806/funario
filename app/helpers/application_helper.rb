@@ -29,15 +29,6 @@ module ApplicationHelper
   end
   # "<meta name="description" content="meta_description"/>" + "<meta name="keyword" content="title1"/>"
   
-  # testing #
-  # def dropzone_tag
-  #   content_tag :form, action:"/file-upload", class: "dropzone", id: "my-awesome-dropzone" do
-  #     content_tag :div, class: "fallback" do
-  #       tag :input , name: "admin_article[image]"
-  #     end
-  #   end
-  # end
-
   def analytics_gtm_tag
     render 'analytics/gtm' if @system.gtm_id.present?
   end
