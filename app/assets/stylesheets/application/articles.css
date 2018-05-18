@@ -66,6 +66,7 @@
     display: inline-block;
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
     height: 560px;
     text-align: end;
     margin: 0 10px;
