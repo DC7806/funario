@@ -55,10 +55,13 @@ class Admin::ArticlesController < AdminController
                                           :permalink, :image, :image_alt, :content, :tag_list, {slide_images: []},
                                           {carousels_attributes: [:id, :image, :_destroy]}, :og_image)
   end
+
   def find_article
     @admin_article = Admin::Article.find_by(id: params[:id])  
   end
+
   def select_author
     @select_author = Author.pluck(:name)+["other"]
   end
+  
 end
