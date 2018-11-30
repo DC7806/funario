@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://www.funario.co"
+SitemapGenerator::Sitemap.default_host = "https://www.funario.cc"
 
 SitemapGenerator::Sitemap.compress = false
 

@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: https://www.funario.co/sitemap.xml
+Sitemap: https://www.funario.cc/sitemap.xml

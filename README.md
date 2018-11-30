@@ -1,7 +1,7 @@
 # Funario
 A simple and seo-ready CMS designed for creating personal blogs  
 
-[[ Demo Site ]](https://www.funario.co)
+[[ Demo Site ]](https://www.funario.cc)
 
 ----
 ## System
