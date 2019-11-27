@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'settingslogic'
 gem 'kaminari'
 # layout
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem "font-awesome-rails"
 # file upload
 gem 'carrierwave', '~> 1.0'
