@@ -35,7 +35,7 @@ gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 # file upload
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 # editor
 gem 'ckeditor', github: 'galetahub/ckeditor'
